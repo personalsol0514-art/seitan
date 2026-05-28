@@ -1,18 +1,18 @@
-/* Warm natural theme */
+/* Green natural theme */
 :root {
-  --color-bg: #fff8ef;
-  --color-surface: #fffdf8;
-  --color-text: #342d25;
-  --color-muted: #6b6258;
-  --color-accent: #55966f;
-  --color-accent-dark: #2f6f4e;
-  --color-accent-soft: #eaf5e6;
-  --color-warm: #f3a96b;
-  --color-warm-soft: #fff0dd;
-  --color-line: #eadcc9;
+  --color-bg: #eef6ed;
+  --color-surface: #fbfff9;
+  --color-text: #26372c;
+  --color-muted: #526758;
+  --color-accent: #4f9668;
+  --color-accent-dark: #225d3b;
+  --color-accent-soft: #dfeee0;
+  --color-green-pale: #f3faf1;
+  --color-green-deep: #153d29;
+  --color-line: #c8ddca;
   --font-display: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
   --font-body: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
-  --shadow-sm: 0 10px 28px rgba(83, 68, 48, 0.09);
+  --shadow-sm: 0 10px 28px rgba(32, 68, 46, 0.1);
   --radius: 8px;
   --header-h: 72px;
 }
@@ -34,7 +34,7 @@ body {
   line-height: 1.75;
   color: var(--color-text);
   background:
-    linear-gradient(180deg, #fff8ef 0%, #f7fbf2 48%, #fff8ef 100%);
+    linear-gradient(180deg, #eef6ed 0%, #fbfff9 48%, #eef6ed 100%);
 }
 
 img {
@@ -57,8 +57,8 @@ a:hover {
   padding: 0.65rem 1rem;
   text-align: center;
   font-size: 0.8125rem;
-  background: var(--color-warm-soft);
-  color: #7a4b22;
+  background: var(--color-accent-soft);
+  color: var(--color-accent-dark);
   border-bottom: 1px solid var(--color-line);
 }
 
@@ -66,7 +66,7 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 253, 248, 0.94);
+  background: rgba(251, 255, 249, 0.94);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-line);
 }
@@ -99,7 +99,7 @@ a:hover {
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-warm);
+  color: var(--color-accent);
 }
 
 .logo-text {
@@ -187,7 +187,7 @@ a:hover {
   border: 2px solid transparent;
   cursor: pointer;
   text-decoration: none;
-  box-shadow: 0 6px 16px rgba(83, 68, 48, 0.08);
+  box-shadow: 0 6px 16px rgba(32, 68, 46, 0.1);
   transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
 }
 
@@ -197,9 +197,9 @@ a:hover {
 }
 
 .btn-primary {
-  background: #3f8d62;
+  background: var(--color-accent-dark);
   color: #fff;
-  border-color: #3f8d62;
+  border-color: var(--color-accent-dark);
 }
 
 .btn-primary:hover {
@@ -209,9 +209,9 @@ a:hover {
 }
 
 .btn-outline {
-  background: rgba(255, 255, 255, 0.74);
+  background: rgba(251, 255, 249, 0.82);
   color: var(--color-accent-dark);
-  border-color: #d6c6b0;
+  border-color: var(--color-line);
 }
 
 .btn-outline:hover {
@@ -247,34 +247,41 @@ a:hover {
 
 .hero {
   position: relative;
-  min-height: min(82vh, 660px);
+  min-height: calc(100svh - var(--header-h));
   display: flex;
-  align-items: center;
-  padding: 2rem 1.25rem 4.5rem;
+  align-items: stretch;
+  padding: 0;
   overflow: hidden;
+  color: #fff;
 }
 
 .hero-bg {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(135deg, rgba(255, 248, 239, 0.98) 0%, rgba(255, 248, 239, 0.86) 45%, transparent 76%),
-    radial-gradient(ellipse 70% 60% at 88% 28%, rgba(243, 169, 107, 0.22), transparent 62%),
-    radial-gradient(ellipse 55% 55% at 12% 82%, rgba(85, 150, 111, 0.16), transparent 64%),
-    linear-gradient(180deg, #fff2df 0%, #f2f8ed 100%);
+    linear-gradient(90deg, rgba(12, 45, 29, 0.78) 0%, rgba(12, 45, 29, 0.58) 42%, rgba(12, 45, 29, 0.2) 100%),
+    linear-gradient(180deg, rgba(12, 45, 29, 0.25) 0%, rgba(12, 45, 29, 0.62) 100%),
+    url("./3.jpg") center / cover no-repeat;
   z-index: 0;
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 1120px;
+  max-width: none;
   margin: 0 auto;
   width: 100%;
+  min-height: calc(100svh - var(--header-h));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.2rem clamp(1.25rem, 5vw, 4.5rem) 3rem;
 }
 
 .top-pickup {
-  padding: 1rem 1.25rem 0;
+  align-self: flex-end;
+  width: min(560px, 100%);
+  padding: 0;
 }
 
 .pickup-grid {
@@ -284,8 +291,8 @@ a:hover {
 }
 
 .pickup-card {
-  background: rgba(255, 253, 248, 0.9);
-  border: 1px solid var(--color-line);
+  background: rgba(251, 255, 249, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.56);
   border-radius: var(--radius);
   padding: 0.85rem 1rem;
   box-shadow: var(--shadow-sm);
@@ -294,7 +301,7 @@ a:hover {
 .pickup-label {
   margin: 0 0 0.25rem;
   font-size: 0.75rem;
-  color: #a1642d;
+  color: var(--color-accent-dark);
 }
 
 .pickup-text {
@@ -303,15 +310,13 @@ a:hover {
 }
 
 .hero-layout {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 2.2rem;
-  align-items: center;
-  padding-top: 0.75rem;
+  display: block;
+  max-width: 720px;
+  padding: 4rem 0 0;
 }
 
 .hero-visual {
-  display: block;
+  display: none;
 }
 
 .hero-photo {
@@ -363,37 +368,43 @@ a:hover {
   align-items: center;
   padding: 0.35rem 0.85rem;
   border-radius: 999px;
-  background: #fff;
-  border: 1px solid var(--color-line);
+  background: rgba(251, 255, 249, 0.92);
+  border: 1px solid rgba(251, 255, 249, 0.76);
   font-size: 0.82rem;
-  color: #7a4b22;
+  color: var(--color-accent-dark);
   margin: 0 0 0.75rem;
 }
 
 .hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3.15rem);
+  font-size: clamp(2.45rem, 6vw, 5rem);
   font-weight: 700;
   line-height: 1.32;
   margin: 0 0 1.25rem;
   letter-spacing: 0;
+  text-shadow: 0 2px 22px rgba(0, 0, 0, 0.34);
 }
 
 .hero-accent {
-  color: var(--color-accent-dark);
+  color: #e2f5dd;
 }
 
 .hero-lead {
-  max-width: 32rem;
+  max-width: 37rem;
   margin: 0 0 2rem;
-  color: var(--color-muted);
-  font-size: 1.04rem;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(1rem, 1.8vw, 1.18rem);
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.34);
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+.hero .btn-outline {
+  border-color: rgba(251, 255, 249, 0.82);
 }
 
 .hero-points {
@@ -408,10 +419,10 @@ a:hover {
   align-items: center;
   min-height: 2rem;
   padding: 0.3rem 0.75rem;
-  background: rgba(255, 253, 248, 0.78);
-  border: 1px solid var(--color-line);
+  background: rgba(251, 255, 249, 0.16);
+  border: 1px solid rgba(251, 255, 249, 0.44);
   border-radius: 999px;
-  color: var(--color-muted);
+  color: #fff;
   font-size: 0.86rem;
   font-weight: 700;
 }
@@ -444,7 +455,7 @@ a:hover {
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #a1642d;
+  color: var(--color-accent);
   margin: 0 0 0.5rem;
   font-weight: 700;
 }
@@ -461,7 +472,7 @@ a:hover {
 
 .hours-section {
   background: var(--color-surface);
-  box-shadow: 0 -1px 0 rgba(234, 220, 201, 0.72), 0 1px 0 rgba(234, 220, 201, 0.72);
+  box-shadow: 0 -1px 0 rgba(200, 221, 202, 0.72), 0 1px 0 rgba(200, 221, 202, 0.72);
 }
 
 .table-wrap {
@@ -484,7 +495,7 @@ a:hover {
 }
 
 .hours-table thead th {
-  background: var(--color-warm-soft);
+  background: var(--color-accent-soft);
   font-weight: 600;
 }
 
@@ -510,7 +521,7 @@ a:hover {
 }
 
 .features-section {
-  background: linear-gradient(180deg, #f6fbf0 0%, #fff4e6 100%);
+  background: linear-gradient(180deg, #f3faf1 0%, #e5f1e2 100%);
 }
 
 .feature-title-num {
@@ -531,7 +542,7 @@ a:hover {
 }
 
 .feature-card {
-  background: rgba(255, 253, 248, 0.94);
+  background: rgba(251, 255, 249, 0.94);
   border: 1px solid var(--color-line);
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
@@ -546,8 +557,8 @@ a:hover {
 .feature-image-wrap {
   aspect-ratio: 5 / 3;
   background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.65), rgba(255, 240, 221, 0.9)),
-    linear-gradient(120deg, #f8e2ca, #dcebd8);
+    linear-gradient(160deg, rgba(255, 255, 255, 0.65), rgba(223, 238, 224, 0.9)),
+    linear-gradient(120deg, #dcebd8, #cfe5d2);
   border: 1px solid var(--color-line);
   border-radius: var(--radius);
   overflow: hidden;
@@ -566,7 +577,7 @@ a:hover {
   font-size: 1.7rem;
   font-weight: 700;
   letter-spacing: 0;
-  color: var(--color-warm);
+  color: var(--color-accent);
   margin: 0 0 0.7rem;
   line-height: 1;
 }
@@ -608,7 +619,7 @@ a:hover {
 }
 
 .menu-section {
-  background: #fffdf8;
+  background: var(--color-surface);
 }
 
 .menu-grid {
@@ -625,14 +636,14 @@ a:hover {
   align-items: flex-start;
   gap: 0.5rem;
   padding: 0.85rem 1rem;
-  background: #fff8ef;
+  background: var(--color-green-pale);
   border-radius: 8px;
   border: 1px solid var(--color-line);
   font-size: 0.9375rem;
 }
 
 .menu-icon {
-  color: var(--color-warm);
+  color: var(--color-accent);
   flex-shrink: 0;
 }
 
@@ -644,7 +655,7 @@ a:hover {
 }
 
 .price-section {
-  background: #edf7e8;
+  background: #e7f3e4;
 }
 
 .price-list {
@@ -706,7 +717,7 @@ a:hover {
   top: 0;
   width: 1.5rem;
   height: 1.5rem;
-  background: var(--color-warm);
+  background: var(--color-accent);
   color: #fff;
   font-size: 0.75rem;
   font-weight: 700;
@@ -741,7 +752,7 @@ a:hover {
 }
 
 .cta-banner {
-  background: linear-gradient(135deg, #3f8d62 0%, #2f6f4e 54%, #d88e4c 100%);
+  background: linear-gradient(135deg, #4f9668 0%, #225d3b 58%, #153d29 100%);
   color: #fff;
   padding: 4rem 1.25rem;
 }
@@ -792,7 +803,7 @@ a:hover {
 }
 
 .access-section {
-  background: #fffdf8;
+  background: var(--color-surface);
 }
 
 .access-grid {
@@ -837,8 +848,8 @@ a:hover {
 .map-placeholder {
   min-height: 280px;
   background:
-    linear-gradient(135deg, rgba(255, 240, 221, 0.88), rgba(234, 245, 230, 0.92)),
-    #f6f1e8;
+    linear-gradient(135deg, rgba(223, 238, 224, 0.88), rgba(234, 245, 230, 0.92)),
+    #edf6ea;
   border-radius: var(--radius);
   border: 1px solid var(--color-line);
   display: flex;
