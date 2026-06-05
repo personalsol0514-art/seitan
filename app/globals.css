@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FDFAF4;
+  color: #4A3728;
+  font-family: var(--font-noto-sans-jp), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.eng-label {
+  letter-spacing: 0.2em;
+  font-size: 10px;
+  color: #9E8E7E;
+}
