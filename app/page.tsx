@@ -11,8 +11,6 @@ import Access from "@/components/Access";
 import Cta from "@/components/Cta";
 import Footer from "@/components/Footer";
 
-export const runtime = "edge";
-
 export default function Home() {
   return (
     <>
