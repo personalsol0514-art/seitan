@@ -1,49 +1,50 @@
-import SectionLabel from "./SectionLabel";
+import SectionTitle from "./SectionTitle";
+
+const PersonIcon = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-green">
+    <circle cx="12" cy="8" r="4" />
+    <path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7" />
+  </svg>
+);
 
 const voices = [
   {
-    tag: "腰痛 · 10年来の慢性痛",
-    voice:
-      "「原因をちゃんと説明してもらえて、通うたびに体が軽くなっていくのを実感しました。」",
-    attr: "40代・女性",
+    headline: "肩こりが楽になり、仕事に集中できるようになりました！",
+    body: "長年の肩こりに悩んでいましたが、原因をしっかり説明してもらい納得できました。施術後は肩が軽くなり、仕事の効率も上がっています。",
+    attr: "30代・女性",
   },
   {
-    tag: "自律神経 · 不眠",
-    voice:
-      "「体が整うと、気持ちまで楽になるんだと初めて知りました。よく眠れています。」",
-    attr: "30代・女性",
+    headline: "腰痛が改善して、趣味のゴルフを楽しめています！",
+    body: "ぎっくり腰をきっかけに通い始めました。今では痛みも気にならなくなり、ゴルフを思いきり楽しめるようになりました。",
+    attr: "40代・男性",
+  },
+  {
+    headline: "姿勢が良くなり、見た目も変わったと言われます！",
+    body: "猫背や反り腰が気になっていましたが、通ううちに姿勢が整い、周りからも『姿勢良くなったね』と言われます。",
+    attr: "20代・女性",
   },
 ];
 
 export default function Voice() {
   return (
-    <section id="voice" className="bg-bgMain" style={{ padding: "52px 32px" }}>
-      <SectionLabel>VOICE / お客様の声</SectionLabel>
-      <h2 className="font-serif text-[22px] text-textMain">変わった、の声。</h2>
+    <section id="voice" className="bg-greenSoft">
+      <div className="mx-auto max-w-6xl px-5 py-16 lg:py-24">
+        <SectionTitle title="お客様の声" />
 
-      <div
-        className="mt-9 grid grid-cols-1 gap-px border border-border md:grid-cols-2"
-        style={{ backgroundColor: "#D9CEB8" }}
-      >
-        {voices.map((v) => (
-          <div key={v.tag} className="bg-bgMain p-7">
-            <p
-              className="text-[11px] text-textSub"
-              style={{ borderLeft: "2px solid #B89A7A", paddingLeft: "8px" }}
-            >
-              {v.tag}
-            </p>
-            <p
-              className="mt-4 font-serif text-[13px] text-textMain"
-              style={{ lineHeight: 2 }}
-            >
-              {v.voice}
-            </p>
-            <p className="mt-4 text-[11px]" style={{ color: "#9E8E7E" }}>
-              {v.attr}
-            </p>
-          </div>
-        ))}
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {voices.map((v) => (
+            <div key={v.attr} className="rounded-2xl bg-white p-7 shadow-md">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-greenSoft">
+                {PersonIcon}
+              </div>
+              <h3 className="mt-4 text-base font-bold leading-relaxed text-ink">
+                {v.headline}
+              </h3>
+              <p className="mt-3 text-sm leading-loose text-sub">{v.body}</p>
+              <p className="mt-4 text-xs text-mute">{v.attr}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

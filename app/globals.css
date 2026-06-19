@@ -4,17 +4,20 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
-  background-color: #FDFAF4;
-  color: #4A3728;
+  background-color: #ffffff;
+  color: #2f2f2b;
   font-family: var(--font-noto-sans-jp), sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 .eng-label {
-  letter-spacing: 0.2em;
-  font-size: 10px;
-  color: #9E8E7E;
+  letter-spacing: 0.22em;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #9a9a8e;
+  font-weight: 500;
 }

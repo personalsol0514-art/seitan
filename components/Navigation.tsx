@@ -1,13 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import LeafSprig from "./LeafSprig";
+
+const BOOKING_URL = "https://bookom.jp";
 
 const links = [
-  { href: "#about", label: "about" },
-  { href: "#treatment", label: "treatment" },
-  { href: "#price", label: "price" },
-  { href: "#therapist", label: "therapist" },
-  { href: "#access", label: "access" },
+  { label: "HOME", href: "#top" },
+  { label: "初めての方へ", href: "#about" },
+  { label: "施術について", href: "#flow" },
+  { label: "料金", href: "#price" },
+  { label: "お客様の声", href: "#voice" },
+  { label: "アクセス", href: "#access" },
 ];
 
 export default function Navigation() {
@@ -15,9 +19,9 @@ export default function Navigation() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 30);
     onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -29,65 +33,38 @@ export default function Navigation() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const solid = scrolled || open;
-
   return (
     <header
-      className={`fixed top-0 left-0 z-50 w-full transition-colors duration-300 ${
-        solid ? "bg-bgMain border-b border-border" : "bg-transparent"
+      className={`sticky top-0 z-50 bg-white border-b border-line transition-shadow ${
+        scrolled ? "shadow-md" : ""
       }`}
     >
-      <div className="flex items-center justify-between px-5 py-3 md:px-9 md:py-4">
-        <a href="#top" className="flex flex-col leading-tight">
-          <span
-            className={`font-serif text-[18px] ${
-              solid ? "text-textMain" : "text-bgMain"
-            }`}
-          >
-            整体 Natural
-          </span>
-          <span
-            className="text-[9px]"
-            style={{
-              letterSpacing: "0.2em",
-              color: solid ? "#9E8E7E" : "rgba(253,250,244,0.7)",
-            }}
-          >
-            SEITAI NATURAL — OKAZAKI
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
+        <a href="#top" className="flex items-center gap-2" onClick={() => setOpen(false)}>
+          <LeafSprig size={26} />
+          <span className="leading-tight">
+            <span className="block font-serif text-lg text-ink">整体 Natural</span>
+            <span className="block text-[10px] tracking-wide text-mute">岡崎市の整体院</span>
           </span>
         </a>
 
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav className="hidden lg:flex items-center gap-7">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className={`text-[12px] tracking-wide transition-colors ${
-                solid
-                  ? "text-textSub hover:text-textMain"
-                  : "text-bgMain/90 hover:text-bgMain"
-              }`}
-              style={{ letterSpacing: "0.1em" }}
+              className="text-sm text-ink transition-colors hover:text-green"
             >
               {l.label}
             </a>
           ))}
           <a
-            href="https://bookom.jp"
+            href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2 text-[12px] tracking-wide transition-colors"
-            style={
-              solid
-                ? { backgroundColor: "#4A3728", color: "#FDFAF4" }
-                : {
-                    backgroundColor: "rgba(253,250,244,0.15)",
-                    border: "1px solid rgba(253,250,244,0.4)",
-                    color: "#FDFAF4",
-                  }
-            }
+            className="inline-flex items-center gap-2 rounded-full bg-green px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-greenDark"
           >
-            RESERVE →
+            オンライン予約
           </a>
         </nav>
 
@@ -96,49 +73,49 @@ export default function Navigation() {
           aria-label="メニュー"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="flex flex-col gap-[5px] md:hidden"
+          className="lg:hidden flex h-10 w-10 items-center justify-center rounded-full text-ink hover:bg-greenSoft"
         >
-          <span
-            className="block h-[2px] w-6 transition-colors"
-            style={{ backgroundColor: solid ? "#4A3728" : "#FDFAF4" }}
-          />
-          <span
-            className="block h-[2px] w-6 transition-colors"
-            style={{ backgroundColor: solid ? "#4A3728" : "#FDFAF4" }}
-          />
-          <span
-            className="block h-[2px] w-6 transition-colors"
-            style={{ backgroundColor: solid ? "#4A3728" : "#FDFAF4" }}
-          />
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round">
+            {open ? (
+              <>
+                <path d="M6 6l12 12" />
+                <path d="M18 6L6 18" />
+              </>
+            ) : (
+              <>
+                <path d="M4 7h16" />
+                <path d="M4 12h16" />
+                <path d="M4 17h16" />
+              </>
+            )}
+          </svg>
         </button>
       </div>
 
       {open && (
-        <nav className="border-t border-border bg-bgMain md:hidden">
-          <div className="flex flex-col">
+        <div className="lg:hidden border-t border-line bg-white">
+          <nav className="mx-auto flex max-w-6xl flex-col px-5 py-3">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="border-b border-border px-6 py-4 text-[13px] text-textMain"
-                style={{ letterSpacing: "0.1em" }}
+                className="py-3 text-sm text-ink border-b border-line/70 transition-colors hover:text-green"
               >
                 {l.label}
               </a>
             ))}
             <a
-              href="https://bookom.jp"
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
-              className="px-6 py-4 text-[13px]"
-              style={{ backgroundColor: "#4A3728", color: "#FDFAF4" }}
+              className="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-green px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-greenDark"
             >
-              RESERVE →
+              オンライン予約 →
             </a>
-          </div>
-        </nav>
+          </nav>
+        </div>
       )}
     </header>
   );

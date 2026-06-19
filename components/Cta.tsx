@@ -1,41 +1,38 @@
+import Button from "./Button";
+import LeafSprig from "./LeafSprig";
+
+const BOOKING_URL = "https://bookom.jp";
+
 export default function Cta() {
   return (
-    <section
-      className="text-center"
-      style={{ backgroundColor: "#B89A7A", padding: "64px 32px" }}
-    >
-      <p
-        className="text-[10px]"
-        style={{ letterSpacing: "0.2em", color: "rgba(253,250,244,0.8)" }}
-      >
-        RESERVATION
-      </p>
-      <h2 className="mt-4 font-serif text-[22px] text-bgMain md:text-[26px]">
-        まず、体の声を聞きにきてください。
-      </h2>
-      <p
-        className="mt-4 text-[13px]"
-        style={{ color: "rgba(253,250,244,0.9)", lineHeight: 1.9 }}
-      >
-        初回カウンセリング＋整体 60分 1,100円
-        <br />
-        岡崎市 東岡崎駅徒歩15分 ／ 駐車場あり
-      </p>
-      <a
-        href="https://bookom.jp"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-8 inline-block px-10 py-4 text-[14px]"
-        style={{ backgroundColor: "#FDFAF4", color: "#4A3728" }}
-      >
-        オンライン予約へ
-      </a>
-      <p
-        className="mt-5 text-[11px]"
-        style={{ color: "rgba(253,250,244,0.8)" }}
-      >
-        24時間受付 ／ 完全予約制
-      </p>
+    <section id="cta" className="bg-gradient-to-b from-greenSoft to-cream">
+      <div className="mx-auto max-w-3xl px-5 py-20 text-center">
+        <div className="flex items-center justify-center gap-3">
+          <LeafSprig />
+          <LeafSprig flip />
+        </div>
+        <h2 className="mt-4 font-serif text-2xl leading-relaxed text-ink md:text-3xl md:leading-relaxed">
+          つらい不調を、根本から整えたいあなたへ
+        </h2>
+        <p className="mt-4 text-sm leading-loose text-sub">
+          まずは初回整体で、身体の変化を体感してください。
+        </p>
+
+        <div className="mt-7 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-2 rounded-2xl bg-white px-5 py-4 shadow-sm">
+          <span className="rounded-full bg-green px-3 py-1 text-xs font-medium text-white">
+            初回限定
+          </span>
+          <span className="text-sm text-ink">カウンセリング＋整体 60分</span>
+          <span className="font-serif text-2xl font-medium text-green">1,100円</span>
+          <span className="text-xs text-mute">(税込)</span>
+        </div>
+
+        <div className="mt-8">
+          <Button href={BOOKING_URL} external>
+            初回整体を予約する
+          </Button>
+        </div>
+      </div>
     </section>
   );
 }
