@@ -1,8 +1,9 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import Badges from "@/components/Badges";
-import About from "@/components/About";
+import TrustBar from "@/components/TrustBar";
+import Philosophy from "@/components/Philosophy";
 import Pain from "@/components/Pain";
+import Therapist from "@/components/Therapist";
 import Flow from "@/components/Flow";
 import Price from "@/components/Price";
 import Voice from "@/components/Voice";
@@ -16,9 +17,10 @@ export default function Home() {
       <Navigation />
       <main>
         <Hero />
-        <Badges />
-        <About />
+        <TrustBar />
+        <Philosophy />
         <Pain />
+        <Therapist />
         <Flow />
         <Price />
         <Voice />

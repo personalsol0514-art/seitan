@@ -1,16 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import LeafSprig from "./LeafSprig";
 
-const BOOKING_URL = "https://bookom.jp";
+const BOOK_URL = "https://bookom.jp";
 
-const links = [
-  { label: "HOME", href: "#top" },
-  { label: "初めての方へ", href: "#about" },
-  { label: "施術について", href: "#flow" },
+const NAV_LINKS = [
+  { label: "院長", href: "#therapist" },
+  { label: "施術方針", href: "#philosophy" },
+  { label: "流れ", href: "#flow" },
   { label: "料金", href: "#price" },
-  { label: "お客様の声", href: "#voice" },
   { label: "アクセス", href: "#access" },
 ];
 
@@ -21,7 +19,7 @@ export default function Navigation() {
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
     onScroll();
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -33,90 +31,98 @@ export default function Navigation() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  const solid = scrolled || open;
+
   return (
-    <header
-      className={`sticky top-0 z-50 bg-white border-b border-line transition-shadow ${
-        scrolled ? "shadow-md" : ""
-      }`}
-    >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
-        <a href="#top" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <LeafSprig size={26} />
-          <span className="leading-tight">
-            <span className="block font-serif text-lg text-ink">整体 Natural</span>
-            <span className="block text-[10px] tracking-wide text-mute">岡崎市の整体院</span>
-          </span>
-        </a>
-
-        <nav className="hidden lg:flex items-center gap-7">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm text-ink transition-colors hover:text-green"
-            >
-              {l.label}
-            </a>
-          ))}
-          <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-green px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-greenDark"
-          >
-            オンライン予約
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+          solid
+            ? "border-b border-line bg-paper text-ink"
+            : "bg-transparent text-paper"
+        }`}
+      >
+        <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-5 md:px-10">
+          <a href="#top" className="flex items-baseline gap-2 leading-none">
+            <span className="font-mincho text-xl font-extrabold tracking-wide">
+              整体 Natural
+            </span>
+            <span className="hidden text-[11px] tracking-wide opacity-70 sm:inline">
+              岡崎市の整体院
+            </span>
           </a>
-        </nav>
 
-        <button
-          type="button"
-          aria-label="メニュー"
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-          className="lg:hidden flex h-10 w-10 items-center justify-center rounded-full text-ink hover:bg-greenSoft"
-        >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round">
-            {open ? (
-              <>
-                <path d="M6 6l12 12" />
-                <path d="M18 6L6 18" />
-              </>
-            ) : (
-              <>
-                <path d="M4 7h16" />
-                <path d="M4 12h16" />
-                <path d="M4 17h16" />
-              </>
-            )}
-          </svg>
-        </button>
-      </div>
-
-      {open && (
-        <div className="lg:hidden border-t border-line bg-white">
-          <nav className="mx-auto flex max-w-6xl flex-col px-5 py-3">
-            {links.map((l) => (
+          <nav className="hidden items-center gap-7 lg:flex">
+            {NAV_LINKS.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                onClick={() => setOpen(false)}
-                className="py-3 text-sm text-ink border-b border-line/70 transition-colors hover:text-green"
+                className="text-sm tracking-wide transition-opacity hover:opacity-60"
               >
                 {l.label}
               </a>
             ))}
             <a
-              href={BOOKING_URL}
+              href={BOOK_URL}
               target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setOpen(false)}
-              className="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-green px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-greenDark"
+              rel="noopener"
+              className="bg-green px-5 py-2 text-sm font-bold tracking-wide text-paper transition-colors hover:bg-greenDeep"
             >
-              オンライン予約 →
+              予約
+            </a>
+          </nav>
+
+          <button
+            type="button"
+            aria-label="メニュー"
+            onClick={() => setOpen(true)}
+            className="lg:hidden"
+          >
+            <span className="flex flex-col gap-[6px]">
+              <span className="block h-[2px] w-7 bg-current" />
+              <span className="block h-[2px] w-7 bg-current" />
+              <span className="block h-[2px] w-7 bg-current" />
+            </span>
+          </button>
+        </div>
+      </header>
+
+      {open && (
+        <div className="fixed inset-0 z-[60] flex flex-col bg-sumi text-paper lg:hidden">
+          <div className="flex h-16 items-center justify-between px-5">
+            <span className="font-mincho text-xl font-extrabold">整体 Natural</span>
+            <button
+              type="button"
+              aria-label="閉じる"
+              onClick={() => setOpen(false)}
+              className="text-3xl leading-none"
+            >
+              ×
+            </button>
+          </div>
+          <nav className="flex flex-1 flex-col justify-center gap-7 px-8">
+            {NAV_LINKS.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="font-mincho text-3xl font-extrabold tracking-wide"
+              >
+                {l.label}
+              </a>
+            ))}
+            <a
+              href={BOOK_URL}
+              target="_blank"
+              rel="noopener"
+              onClick={() => setOpen(false)}
+              className="mt-4 inline-block w-fit bg-paper px-8 py-3 text-base font-bold text-sumi"
+            >
+              予約する
             </a>
           </nav>
         </div>
       )}
-    </header>
+    </>
   );
 }

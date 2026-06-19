@@ -1,48 +1,38 @@
-import SectionTitle from "./SectionTitle";
-
-const PersonIcon = (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-green">
-    <circle cx="12" cy="8" r="4" />
-    <path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7" />
-  </svg>
-);
-
-const voices = [
+const QUOTES = [
   {
-    headline: "肩こりが楽になり、仕事に集中できるようになりました！",
-    body: "長年の肩こりに悩んでいましたが、原因をしっかり説明してもらい納得できました。施術後は肩が軽くなり、仕事の効率も上がっています。",
-    attr: "30代・女性",
+    text: "原因をきちんと説明してくれて、納得して通えました。肩が軽くなり、仕事に集中できています。",
+    who: "30代・女性（肩こり）",
   },
   {
-    headline: "腰痛が改善して、趣味のゴルフを楽しめています！",
-    body: "ぎっくり腰をきっかけに通い始めました。今では痛みも気にならなくなり、ゴルフを思いきり楽しめるようになりました。",
-    attr: "40代・男性",
+    text: "ぎっくり腰から通い始め、今は趣味のゴルフを思いきり楽しめています。",
+    who: "40代・男性（腰痛）",
   },
   {
-    headline: "姿勢が良くなり、見た目も変わったと言われます！",
-    body: "猫背や反り腰が気になっていましたが、通ううちに姿勢が整い、周りからも『姿勢良くなったね』と言われます。",
-    attr: "20代・女性",
+    text: "猫背が整い、周りから“姿勢が良くなったね”と言われるようになりました。",
+    who: "20代・女性（姿勢）",
   },
 ];
 
 export default function Voice() {
   return (
-    <section id="voice" className="bg-greenSoft">
-      <div className="mx-auto max-w-6xl px-5 py-16 lg:py-24">
-        <SectionTitle title="お客様の声" />
-
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {voices.map((v) => (
-            <div key={v.attr} className="rounded-2xl bg-white p-7 shadow-md">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-greenSoft">
-                {PersonIcon}
-              </div>
-              <h3 className="mt-4 text-base font-bold leading-relaxed text-ink">
-                {v.headline}
-              </h3>
-              <p className="mt-3 text-sm leading-loose text-sub">{v.body}</p>
-              <p className="mt-4 text-xs text-mute">{v.attr}</p>
-            </div>
+    <section className="bg-green text-paper">
+      <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-16 md:py-28">
+        <span className="vertical-rl text-xs tracking-[0.4em] text-paper/55">
+          お客様の声
+        </span>
+        <div className="mt-8 grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-10">
+          {QUOTES.map((q) => (
+            <figure key={q.who} className="flex flex-col">
+              <span className="font-mincho text-6xl font-extrabold leading-none text-paper/40">
+                「
+              </span>
+              <blockquote className="-mt-4 font-mincho text-xl font-semibold leading-relaxed text-paper md:text-2xl">
+                {q.text}
+              </blockquote>
+              <figcaption className="mt-6 border-t border-lineDark pt-4 text-sm text-paper/60">
+                {q.who}
+              </figcaption>
+            </figure>
           ))}
         </div>
       </div>

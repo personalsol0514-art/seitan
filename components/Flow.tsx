@@ -1,64 +1,61 @@
 import Image from "next/image";
-import SectionTitle from "./SectionTitle";
 
-const steps = [
+const STEPS = [
   {
     no: "01",
-    title: "カウンセリング",
-    text: "お悩みや生活習慣を丁寧にお伺いします。",
+    title: "カウンセリング・問診",
+    sub: "お悩みと生活習慣を伺います",
     img: "/images/therapist.jpg",
   },
   {
     no: "02",
-    title: "姿勢・動作チェック",
-    text: "姿勢や動きの癖を確認し、不調の原因を見つけます。",
+    title: "身体の見立て（検査）",
+    sub: "姿勢・動き・関節を確認し、原因を特定します",
     img: "/images/feature-03.jpg",
   },
   {
     no: "03",
     title: "施術",
-    text: "身体のバランスを整え、不調の改善を目指します。",
+    sub: "根本原因にアプローチし、整えます",
     img: "/images/feature-02.jpg",
   },
   {
     no: "04",
-    title: "セルフケア・生活指導",
-    text: "再発予防のためのストレッチや生活のアドバイスを行います。",
+    title: "セルフケア指導",
+    sub: "再発させない習慣をお伝えします",
     img: "/images/feature-01.jpg",
   },
 ];
 
 export default function Flow() {
   return (
-    <section id="flow" className="bg-white">
-      <div className="mx-auto max-w-6xl px-5 py-16 lg:py-24">
-        <SectionTitle
-          title="初回の流れ"
-          subtitle="丁寧なカウンセリングと検査で、原因を見つけ出します。"
-        />
+    <section id="flow" className="bg-white text-ink">
+      <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-16 md:py-28">
+        <h2 className="font-mincho text-3xl font-extrabold md:text-5xl">
+          施術の流れ
+        </h2>
 
-        <div className="mt-12 grid grid-cols-1 gap-x-2 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((s, i) => (
-            <div key={s.no} className="flex items-start">
-              <div className="flex-1">
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-sm">
-                  <Image
-                    src={s.img}
-                    alt={s.title}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover"
-                  />
-                  <span className="absolute left-3 top-3 rounded-full bg-green px-3 py-1 text-xs font-bold text-white shadow-sm">
-                    {s.no}
-                  </span>
-                </div>
-                <h3 className="mt-4 text-base font-bold text-ink">{s.title}</h3>
-                <p className="mt-2 text-sm leading-loose text-sub">{s.text}</p>
+        <div className="mt-14 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+          {STEPS.map((step) => (
+            <div key={step.no} className="border-t-2 border-ink pt-5">
+              <span className="font-mincho text-4xl font-extrabold text-wood">
+                {step.no}
+              </span>
+              <div className="relative mt-4 aspect-[4/3] w-full overflow-hidden">
+                <Image
+                  src={step.img}
+                  alt={step.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover"
+                />
               </div>
-              {i < steps.length - 1 && (
-                <span className="mx-1 mt-16 hidden self-start text-2xl text-mute lg:block">›</span>
-              )}
+              <p className="mt-5 font-mincho text-xl font-extrabold leading-snug">
+                {step.title}
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-inkSub">
+                {step.sub}
+              </p>
             </div>
           ))}
         </div>
