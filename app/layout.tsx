@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Shippori_Mincho, Noto_Sans_JP } from "next/font/google";
+import { Zen_Kaku_Gothic_New, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 
-const shipporiMincho = Shippori_Mincho({
+const zenKaku = Zen_Kaku_Gothic_New({
   subsets: ["latin"],
-  weight: ["600", "800"],
-  variable: "--font-mincho",
+  weight: ["700", "900"],
+  variable: "--font-head",
   display: "swap",
 });
 
@@ -82,7 +82,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ja" className={`${shipporiMincho.variable} ${notoSansJP.variable}`}>
+    <html lang="ja" className={`${zenKaku.variable} ${notoSansJP.variable}`}>
       <body>
         <script
           type="application/ld+json"

@@ -8,22 +8,22 @@ const MAP_LINK =
 const INFO = [
   { label: "住所", value: "〒444-0051 愛知県岡崎市本町通2丁目3 鳥居ビル1F" },
   { label: "最寄", value: "東岡崎駅 徒歩15分" },
-  { label: "駐車場", value: "店舗裏 タカラパーキング" },
+  { label: "駐車場", value: "店舗裏 タカラパーキング（無料）" },
   { label: "営業", value: "9:00〜20:00（最終受付19:00）" },
-  { label: "定休", value: "年中無休（完全予約制）" },
+  { label: "定休", value: "年中無休（土日祝も受付）／完全予約制" },
 ];
 
 export default function Access() {
   return (
-    <section id="access" className="bg-white text-ink">
-      <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-16 md:py-28">
-        <h2 className="font-mincho text-3xl font-extrabold md:text-5xl">
-          アクセス
-        </h2>
+    <section id="access" className="bg-cream text-ink">
+      <div className="mx-auto max-w-6xl px-5 py-16 md:px-6 md:py-24">
+        <div className="text-center">
+          <h2 className="font-head font-black text-2xl md:text-4xl">アクセス</h2>
+        </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-14">
+        <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           <div>
-            <div className="relative aspect-[4/3] w-full overflow-hidden">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl shadow-md">
               <Image
                 src="/images/about.jpg"
                 alt="整体 Natural の院内"
@@ -33,17 +33,15 @@ export default function Access() {
               />
             </div>
 
-            <p className="mt-8 font-mincho text-2xl font-extrabold">
-              整体 Natural
-            </p>
+            <p className="mt-6 font-head font-black text-xl">整体 Natural</p>
 
-            <dl className="mt-6 border-t border-line">
+            <dl className="mt-4 border-t border-line">
               {INFO.map((row) => (
                 <div
                   key={row.label}
-                  className="flex gap-4 border-b border-line py-4"
+                  className="flex gap-4 border-b border-line py-3"
                 >
-                  <dt className="w-16 shrink-0 text-sm font-bold text-inkSub">
+                  <dt className="w-14 shrink-0 text-sm font-bold text-green">
                     {row.label}
                   </dt>
                   <dd className="text-sm leading-relaxed">{row.value}</dd>
@@ -55,13 +53,13 @@ export default function Access() {
               href={MAP_LINK}
               target="_blank"
               rel="noopener"
-              className="mt-8 inline-block border border-ink px-7 py-3 text-sm font-bold tracking-wide transition-colors hover:bg-ink hover:text-paper"
+              className="mt-6 inline-flex items-center font-bold text-green hover:text-greenDark transition-colors"
             >
-              Googleマップで見る
+              Googleマップで見る →
             </a>
           </div>
 
-          <div className="min-h-[380px] w-full overflow-hidden">
+          <div className="min-h-[380px] w-full overflow-hidden rounded-xl shadow-md">
             <iframe
               title="整体 Natural の地図"
               src={MAP_SRC}

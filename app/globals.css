@@ -4,18 +4,13 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 72px;
+  scroll-padding-top: 80px;
 }
 
 body {
-  background-color: #f1ebdd;
-  color: #1f1d18;
+  background-color: #ffffff;
+  color: #2a2a26;
   font-family: var(--font-sans), sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-}
-
-.vertical-rl {
-  writing-mode: vertical-rl;
-  text-orientation: upright;
 }

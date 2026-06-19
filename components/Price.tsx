@@ -1,62 +1,75 @@
+const BOOKING = "https://bookom.jp";
+
 const ROWS = [
-  {
-    label: "初回（カウンセリング＋見立て＋整体 60分）",
-    price: "1,100",
-    feature: true,
-  },
-  {
-    label: "2回目以降　整体 60分",
-    price: "6,600",
-    feature: false,
-  },
-  {
-    label: "2回目以降　整体 90分",
-    price: "9,900",
-    feature: false,
-  },
+  { label: "2回目以降　整体 60分", price: "¥6,600(税込)" },
+  { label: "2回目以降　整体 90分", price: "¥9,900(税込)" },
 ];
 
 export default function Price() {
   return (
-    <section id="price" className="bg-paper text-ink">
-      <div className="mx-auto max-w-[1100px] px-6 py-20 md:px-16 md:py-28">
-        <h2 className="font-mincho text-3xl font-extrabold md:text-5xl">料金</h2>
+    <section id="price" className="bg-white text-ink">
+      <div className="mx-auto max-w-3xl px-5 py-16 md:px-6 md:py-24">
+        <div className="text-center">
+          <h2 className="font-head font-black text-2xl md:text-4xl">料金</h2>
+        </div>
 
-        <div className="mt-12 border-t-2 border-ink">
-          {ROWS.map((row) => (
+        {/* Featured first-visit block */}
+        <div className="mt-10 rounded-2xl border-2 border-orange bg-cream p-6 md:p-8 text-center shadow-md">
+          <span className="inline-block bg-orange text-white text-xs font-bold px-3 py-1 rounded-full">
+            初回限定
+          </span>
+          <p className="mt-3 font-medium text-sm md:text-base text-sub">
+            カウンセリング＋整体 60分
+          </p>
+          <p className="mt-2 flex items-baseline justify-center gap-2">
+            <span className="text-sub line-through text-lg">¥6,600</span>
+            <span className="font-head font-black text-5xl md:text-6xl text-orange">
+              ¥1,100
+            </span>
+          </p>
+          <p className="mt-1 text-sm text-sub">(税込)</p>
+        </div>
+
+        {/* Repeat-visit table */}
+        <div className="mt-8 rounded-xl border border-line overflow-hidden">
+          {ROWS.map((row, i) => (
             <div
               key={row.label}
-              className={`flex flex-col gap-3 border-b border-line py-7 sm:flex-row sm:items-end sm:justify-between ${
-                row.feature ? "bg-paper2/60 px-4 sm:px-6" : ""
+              className={`flex items-center justify-between px-5 py-4 ${
+                i !== 0 ? "border-t border-line" : ""
               }`}
             >
-              <div className="flex flex-col gap-2">
-                {row.feature && (
-                  <span className="w-fit bg-green px-3 py-1 text-xs font-bold tracking-wide text-paper">
-                    初回限定
-                  </span>
-                )}
-                <span className="text-base font-medium leading-snug md:text-lg">
-                  {row.label}
-                </span>
-              </div>
-              <div className="flex items-baseline gap-1 sm:shrink-0">
-                <span
-                  className={`font-mincho text-4xl font-extrabold md:text-5xl ${
-                    row.feature ? "text-wood" : "text-ink"
-                  }`}
-                >
-                  {row.price}
-                </span>
-                <span className="text-sm text-inkSub">円(税込)</span>
-              </div>
+              <span className="font-medium text-[15px] md:text-base">
+                {row.label}
+              </span>
+              <span className="font-head font-black text-lg md:text-xl text-greenHeader">
+                {row.price}
+              </span>
             </div>
           ))}
         </div>
 
-        <p className="mt-6 text-sm text-inkSub">
+        <p className="mt-5 text-center text-sm text-sub">
           現金・各種クレジットカード・QR決済対応／完全予約制
         </p>
+
+        {/* CTA */}
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a
+            href={BOOKING}
+            target="_blank"
+            rel="noopener"
+            className="inline-flex items-center justify-center bg-orange hover:bg-orangeDark text-white font-bold text-base px-7 py-4 rounded-md transition-colors"
+          >
+            初回1,100円で予約する →
+          </a>
+          <a
+            href="tel:07022825501"
+            className="inline-flex items-center justify-center gap-2 border border-green text-green font-bold text-base px-7 py-4 rounded-md hover:bg-green hover:text-white transition-colors"
+          >
+            📞 070-2282-5501
+          </a>
+        </div>
       </div>
     </section>
   );

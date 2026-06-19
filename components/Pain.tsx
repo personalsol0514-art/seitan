@@ -1,40 +1,59 @@
+const BOOKING = "https://bookom.jp";
+
 const ITEMS = [
-  { no: "01", text: "朝起きると、もう肩が重い" },
-  { no: "02", text: "何年も腰痛と付き合っている" },
-  { no: "03", text: "マッサージしても、すぐ戻る" },
-  { no: "04", text: "姿勢の悪さを指摘される" },
-  { no: "05", text: "寝ても疲れが取れない" },
+  "マッサージしてもすぐ戻る肩こり",
+  "朝起きた時から腰が重い",
+  "デスクワークで首肩が限界",
+  "姿勢が悪いと言われる",
+  "病院では「異常なし」と言われた",
+  "疲れているのに眠れない",
 ];
 
 export default function Pain() {
   return (
-    <section className="bg-paper text-ink">
-      <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-16 md:py-28">
-        <h2 className="font-mincho text-3xl font-extrabold leading-tight md:text-5xl">
-          こんな身体、
-          <br className="sm:hidden" />
-          放っていませんか。
-        </h2>
+    <section id="pain" className="bg-cream text-ink">
+      <div className="mx-auto max-w-5xl px-5 py-16 md:px-6 md:py-24">
+        <div className="text-center">
+          <h2 className="font-head font-black text-2xl md:text-4xl leading-tight">
+            こんなお悩み、ありませんか？
+          </h2>
+          <p className="mt-3 text-sub text-sm md:text-base">
+            ひとつでも当てはまる方は、ご相談ください。
+          </p>
+        </div>
 
-        <ul className="mt-12 border-t border-line">
-          {ITEMS.map((item) => (
+        <ul className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-3">
+          {ITEMS.map((text) => (
             <li
-              key={item.no}
-              className="flex items-baseline gap-5 border-b border-line py-6 md:gap-10"
+              key={text}
+              className="flex items-center gap-3 bg-white border border-line rounded-lg px-4 py-4 shadow-sm"
             >
-              <span className="font-mincho text-3xl font-extrabold text-wood md:text-4xl">
-                {item.no}
+              <span className="shrink-0 flex items-center justify-center w-7 h-7 rounded-full bg-orange text-white font-bold text-sm">
+                ✓
               </span>
-              <span className="font-mincho text-xl font-semibold md:text-2xl">
-                {item.text}
-              </span>
+              <span className="font-medium text-[15px] md:text-base">{text}</span>
             </li>
           ))}
         </ul>
 
-        <p className="mt-8 text-sm text-inkSub md:text-base">
-          ——その多くは、痛みの「原因」が放置されているだけです。
-        </p>
+        <div className="mt-12 text-center">
+          <p className="font-head font-black text-xl md:text-2xl text-greenHeader">
+            その不調、&quot;原因&quot;から改善できます。
+          </p>
+          <div className="mt-6 flex flex-col items-center gap-3">
+            <a
+              href={BOOKING}
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center justify-center bg-orange hover:bg-orangeDark text-white font-bold text-base px-8 py-4 rounded-md transition-colors"
+            >
+              肩こり・腰痛を相談する →
+            </a>
+            <span className="inline-flex items-center bg-cream2 text-greenHeader text-xs md:text-sm font-bold px-4 py-1.5 rounded-full">
+              初回限定 60分 1,100円(税込)
+            </span>
+          </div>
+        </div>
       </div>
     </section>
   );

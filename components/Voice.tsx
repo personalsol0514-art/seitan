@@ -1,36 +1,49 @@
-const QUOTES = [
+const REVIEWS = [
   {
-    text: "原因をきちんと説明してくれて、納得して通えました。肩が軽くなり、仕事に集中できています。",
-    who: "30代・女性（肩こり）",
+    head: "原因をしっかり説明してくれた",
+    body: "どこに行っても良くならなかった肩こりが、通ううちに本当に楽になりました。仕事に集中できます。",
+    who: "A.K様（40代・女性／肩こり）",
   },
   {
-    text: "ぎっくり腰から通い始め、今は趣味のゴルフを思いきり楽しめています。",
-    who: "40代・男性（腰痛）",
+    head: "もう戻らないと実感",
+    body: "ぎっくり腰で駆け込みました。その場しのぎでなく、原因から見てくれて今は趣味も楽しめています。",
+    who: "T.S様（40代・男性／腰痛）",
   },
   {
-    text: "猫背が整い、周りから“姿勢が良くなったね”と言われるようになりました。",
-    who: "20代・女性（姿勢）",
+    head: "姿勢が変わった",
+    body: "猫背を指摘されて通い始め、周りから“姿勢が良くなったね”と言われるように。",
+    who: "M.N様（20代・女性／姿勢）",
+  },
+  {
+    head: "子連れでも安心",
+    body: "子どもを連れて通えるのが本当に助かります。先生が優しく、説明も丁寧です。",
+    who: "Y.H様（30代・女性／産後の不調）",
   },
 ];
 
 export default function Voice() {
   return (
-    <section className="bg-green text-paper">
-      <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-16 md:py-28">
-        <span className="vertical-rl text-xs tracking-[0.4em] text-paper/55">
-          お客様の声
-        </span>
-        <div className="mt-8 grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-10">
-          {QUOTES.map((q) => (
-            <figure key={q.who} className="flex flex-col">
-              <span className="font-mincho text-6xl font-extrabold leading-none text-paper/40">
-                「
-              </span>
-              <blockquote className="-mt-4 font-mincho text-xl font-semibold leading-relaxed text-paper md:text-2xl">
-                {q.text}
+    <section id="voice" className="bg-cream text-ink">
+      <div className="mx-auto max-w-5xl px-5 py-16 md:px-6 md:py-24">
+        <div className="text-center">
+          <h2 className="font-head font-black text-2xl md:text-4xl">お客様の声</h2>
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5">
+          {REVIEWS.map((r) => (
+            <figure
+              key={r.who}
+              className="bg-white border border-line rounded-xl p-6 shadow-sm"
+            >
+              <div className="text-star text-lg tracking-tight">★★★★★</div>
+              <p className="mt-3 font-head font-black text-lg text-greenHeader leading-snug">
+                「{r.head}」
+              </p>
+              <blockquote className="mt-3 text-[15px] leading-relaxed text-sub">
+                {r.body}
               </blockquote>
-              <figcaption className="mt-6 border-t border-lineDark pt-4 text-sm text-paper/60">
-                {q.who}
+              <figcaption className="mt-4 border-t border-line pt-3 text-sm font-medium text-ink">
+                — {r.who}
               </figcaption>
             </figure>
           ))}

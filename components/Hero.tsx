@@ -1,55 +1,124 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
-const BOOK_URL = "https://bookom.jp";
+const BOOKING = "https://bookom.jp";
+
+const SLIDES = [
+  { src: "/images/hero.jpg", alt: "整体 Natural の施術風景" },
+  { src: "/images/therapist.jpg", alt: "院長による姿勢チェック" },
+  { src: "/images/about.jpg", alt: "整体 Natural の院内" },
+];
+
+const CHIPS = [
+  "✓完全予約制",
+  "✓駐車場あり（無料）",
+  "✓土日祝も受付",
+  "✓お子様連れOK",
+];
 
 export default function Hero() {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(
+      () => setActive((i) => (i + 1) % SLIDES.length),
+      4500
+    );
+    return () => clearInterval(id);
+  }, []);
+
   return (
-    <section id="top" className="relative min-h-[92vh] w-full overflow-hidden bg-sumi">
-      <Image
-        src="/images/hero.jpg"
-        alt="整体 Natural の施術風景"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-      />
+    <section
+      id="top"
+      className="relative min-h-[90vh] w-full overflow-hidden pt-[68px]"
+    >
+      {/* Slideshow */}
+      <div className="absolute inset-0">
+        {SLIDES.map((s, i) => (
+          <div
+            key={s.src}
+            className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+            style={{ opacity: i === active ? 1 : 0 }}
+          >
+            <Image
+              src={s.src}
+              alt={s.alt}
+              fill
+              priority={i === 0}
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Scrim */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(100deg, rgba(22,20,15,0.88) 0%, rgba(22,20,15,0.72) 38%, rgba(22,20,15,0.15) 78%, rgba(22,20,15,0.05) 100%), linear-gradient(0deg, rgba(22,20,15,0.85) 0%, rgba(22,20,15,0.1) 45%)",
+            "linear-gradient(105deg, rgba(15,40,25,0.78) 0%, rgba(15,40,25,0.6) 42%, rgba(15,40,25,0.15) 80%), linear-gradient(0deg, rgba(15,40,25,0.7) 0%, rgba(15,40,25,0.05) 55%)",
         }}
       />
 
-      <div className="relative z-10 mx-auto flex min-h-[92vh] max-w-[1400px] flex-col justify-end px-6 pb-20 pt-32 md:px-16 md:pb-28">
-        <p className="mb-6 text-xs tracking-[0.3em] text-paper/70 md:text-sm">
-          岡崎・東岡崎｜整体師歴10年
+      {/* Content */}
+      <div className="relative z-10 mx-auto flex min-h-[calc(90vh-68px)] max-w-6xl flex-col justify-center px-5 py-12 md:px-6">
+        <p className="flex items-center gap-1.5 text-sm text-white/90">
+          <span aria-hidden>📍</span>
+          岡崎市・東岡崎の整体院｜完全予約制
         </p>
-        <h1 className="font-mincho text-6xl font-extrabold leading-[1.05] text-paper sm:text-7xl md:text-8xl">
-          ごまかさない、
-          <br />
-          <span className="ml-4 inline-block border-b-4 border-wood pb-1 md:ml-8">
-            整体。
+
+        <h1 className="mt-4 font-head font-black text-4xl leading-[1.18] text-white sm:text-5xl md:text-6xl">
+          <span className="border-b-4 border-orange pb-1">
+            肩こり・腰痛・姿勢
           </span>
+          のゆがみを、
+          <br className="hidden sm:block" />
+          根本から改善。
         </h1>
-        <p className="mt-8 max-w-xl text-base text-paper/85 md:text-lg">
-          痛みの原因を見立て、根本から整える。
-        </p>
-        <div className="mt-10">
+
+        {/* Orange ribbon */}
+        <div className="mt-7 inline-flex w-fit items-center bg-orange text-white font-bold text-sm md:text-base px-5 py-3 rounded-md shadow-lg">
+          初回限定　カウンセリング＋整体 60分　1,100円(税込)
+        </div>
+
+        {/* Info chips */}
+        <div className="mt-6 flex flex-wrap gap-2">
+          {CHIPS.map((c) => (
+            <span
+              key={c}
+              className="bg-white/95 text-greenHeader text-xs md:text-sm font-bold px-3 py-1.5 rounded-full"
+            >
+              {c}
+            </span>
+          ))}
+        </div>
+
+        {/* CTA row */}
+        <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-3">
+          <div className="flex flex-col">
+            <a
+              href="tel:07022825501"
+              className="inline-flex items-center justify-center gap-2 bg-white text-green font-black text-lg px-6 py-3.5 rounded-md hover:bg-cream transition-colors"
+            >
+              📞 070-2282-5501
+            </a>
+            <span className="mt-1 text-center text-[11px] text-white/85">
+              受付 9:00〜20:00
+            </span>
+          </div>
           <a
-            href={BOOK_URL}
+            href={BOOKING}
             target="_blank"
             rel="noopener"
-            className="inline-block bg-paper px-8 py-4 text-base font-bold tracking-wide text-sumi transition-colors hover:bg-paper2"
+            className="inline-flex items-center justify-center bg-orange hover:bg-orangeDark text-white font-bold text-base px-7 py-4 rounded-md transition-colors"
           >
-            初回を予約する ｜ 60分 1,100円
+            初回1,100円で予約する →
           </a>
         </div>
       </div>
-
-      <span className="vertical-rl absolute right-5 top-1/2 z-10 -translate-y-1/2 text-xs tracking-[0.4em] text-paper/50 md:right-8">
-        完全予約制
-      </span>
     </section>
   );
 }
