@@ -6,10 +6,10 @@ const BOOKING = "https://bookom.jp";
 
 const links = [
   { label: "お悩み", href: "#pain" },
+  { label: "原因", href: "#causes" },
   { label: "整体Naturalとは", href: "#compare" },
+  { label: "対応症状", href: "#symptoms" },
   { label: "料金", href: "#price" },
-  { label: "流れ", href: "#flow" },
-  { label: "口コミ", href: "#voice" },
   { label: "アクセス", href: "#access" },
 ];
 
