@@ -6,16 +6,15 @@ import Image from "next/image";
 const BOOKING = "https://bookom.jp";
 
 const SLIDES = [
-  { src: "/images/hero.jpg", alt: "整体 Natural の施術風景" },
-  { src: "/images/therapist.jpg", alt: "院長による姿勢チェック" },
-  { src: "/images/about.jpg", alt: "整体 Natural の院内" },
+  { src: "/images/hero.jpg", alt: "整体 Natural の施術風景", pos: "50% 22%" },
+  { src: "/images/therapist.jpg", alt: "院長による姿勢チェック", pos: "50% 28%" },
+  { src: "/images/about.jpg", alt: "整体 Natural の院内", pos: "50% 42%" },
 ];
 
 const CHIPS = [
   "✓完全予約制",
   "✓駐車場あり（無料）",
   "✓土日祝も受付",
-  "✓お子様連れOK",
 ];
 
 export default function Hero() {
@@ -49,6 +48,7 @@ export default function Hero() {
               priority={i === 0}
               sizes="100vw"
               className="object-cover"
+              style={{ objectPosition: s.pos }}
             />
           </div>
         ))}
