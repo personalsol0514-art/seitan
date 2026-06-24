@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const CIRCLES = [
   { top: "初回限定", main: "1,100円", sub: "60分・税込", big: true },
   { top: "", main: "完全予約制", sub: "待ち時間なし" },
@@ -15,31 +17,38 @@ export default function TrustBanner() {
           {CIRCLES.map((c) => (
             <div
               key={c.main}
-              className="flex aspect-square w-[30%] max-w-[170px] flex-col items-center justify-center rounded-full px-2 text-center text-white shadow-xl ring-4 ring-white/60 sm:w-36 md:w-40"
-              style={{
-                background:
-                  "radial-gradient(circle at 36% 30%, #f4923f 0%, #ec7324 52%, #d4621a 100%)",
-              }}
+              className="relative flex aspect-square w-[30%] max-w-[170px] flex-col items-center justify-center rounded-full px-1.5 text-center shadow-xl sm:w-36 sm:px-2 md:w-40"
             >
-              {c.top && (
+              <Image
+                src="/images/badge-circle.png"
+                alt=""
+                fill
+                sizes="200px"
+                className="rounded-full object-cover"
+              />
+              <div className="relative z-10 flex flex-col items-center">
+                {c.top && (
+                  <span
+                    className={`leading-none drop-shadow-sm ${
+                      c.star
+                        ? "text-orange text-xs tracking-tight md:text-base"
+                        : "text-greenHeader text-xs font-bold md:text-sm"
+                    }`}
+                  >
+                    {c.top}
+                  </span>
+                )}
                 <span
-                  className={`leading-none ${
-                    c.star ? "text-star text-[11px] tracking-tight md:text-sm" : "text-[11px] font-bold md:text-xs"
-                  }`}
+                  className={`whitespace-nowrap font-head font-black leading-[1.05] tracking-tight text-greenHeader drop-shadow-sm ${
+                    c.big ? "text-xl md:text-3xl" : "text-[11px] sm:text-base md:text-xl"
+                  } ${c.top ? "mt-1" : ""}`}
                 >
-                  {c.top}
+                  {c.main}
                 </span>
-              )}
-              <span
-                className={`font-head font-black leading-tight ${
-                  c.big ? "text-xl md:text-2xl" : "text-[13px] sm:text-base md:text-lg"
-                } ${c.top ? "mt-1" : ""}`}
-              >
-                {c.main}
-              </span>
-              <span className="mt-1 text-[10px] leading-tight text-white/90 md:text-[11px]">
-                {c.sub}
-              </span>
+                <span className="mt-1 whitespace-nowrap text-[9px] font-bold leading-tight text-greenHeader/80 sm:text-[11px] md:text-xs">
+                  {c.sub}
+                </span>
+              </div>
             </div>
           ))}
         </div>
