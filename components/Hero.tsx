@@ -53,22 +53,22 @@ export default function Hero() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(100deg, rgba(10,42,27,0.84) 0%, rgba(10,42,27,0.62) 42%, rgba(10,42,27,0.12) 78%), linear-gradient(0deg, rgba(10,42,27,0.54) 0%, rgba(10,42,27,0.02) 58%)",
+              "linear-gradient(90deg, rgba(8,43,27,0.48) 0%, rgba(8,43,27,0.28) 34%, rgba(8,43,27,0.04) 62%, transparent 78%), linear-gradient(0deg, rgba(8,43,27,0.2) 0%, transparent 42%)",
           }}
         />
 
         <div className="relative z-10 mx-auto flex min-h-[calc(82svh-68px)] max-w-6xl flex-col justify-center px-5 pb-16 pt-12 md:min-h-[calc(84svh-68px)] md:px-6">
-          <p className="text-sm font-bold tracking-[0.08em] text-white/90">
+          <p className="font-serif text-xs font-medium tracking-[0.12em] text-white md:text-sm">
             岡崎市・東岡崎｜完全予約制
           </p>
 
-          <h1 className="mt-5 max-w-4xl font-head text-4xl font-black leading-[1.22] text-white drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="mt-5 max-w-3xl font-serif text-[34px] font-semibold leading-[1.42] tracking-[0.04em] text-white [text-shadow:0_2px_10px_rgba(0,0,0,0.22)] sm:text-[40px] md:text-[48px] lg:text-[56px]">
             その痛み、
             <br />
             あきらめる前に。
           </h1>
 
-          <p className="mt-5 max-w-2xl text-base font-bold leading-8 text-white/95 drop-shadow md:text-xl">
+          <p className="mt-5 max-w-xl font-serif text-sm font-medium leading-7 tracking-[0.04em] text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.2)] md:text-base md:leading-8">
             肩こり・腰痛・姿勢のゆがみを、
             <br className="sm:hidden" />
             痛い場所だけでなく原因から見直す整体。
@@ -78,7 +78,7 @@ export default function Hero() {
             {CHIPS.map((chip) => (
               <span
                 key={chip}
-                className="min-w-24 rounded-full border border-white/55 bg-greenHeader/45 px-4 py-1.5 text-center text-xs font-bold text-white backdrop-blur-sm md:text-sm"
+                className="min-w-24 rounded-full border border-white/70 bg-transparent px-4 py-1.5 text-center font-serif text-[11px] font-medium tracking-[0.08em] text-white md:text-xs"
               >
                 {chip}
               </span>
@@ -104,9 +104,9 @@ export default function Hero() {
           <span className="-mt-0.5 h-2 w-2 rounded-full bg-greenHeader" aria-hidden />
         </a>
 
-        <h2 className="text-center font-head text-2xl font-black tracking-[0.08em] text-greenHeader sm:text-3xl md:text-4xl">
+        <h2 className="text-center font-serif text-[22px] font-semibold leading-[1.75] tracking-[0.1em] text-greenHeader sm:text-[26px] md:text-[34px]">
           あなたの痛みが繰り返す、
-          <span className="mt-1 inline-block border-b-[10px] border-[#dce7d7] leading-[0.65]">
+          <span className="mt-1 inline-block border-b-[8px] border-[#dce7d7] leading-[0.7]">
             本当の理由
           </span>
         </h2>

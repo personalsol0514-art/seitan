@@ -23,6 +23,7 @@ const config: Config = {
       fontFamily: {
         head: ["var(--font-head)", "sans-serif"],
         sans: ["var(--font-sans)", "sans-serif"],
+        serif: ["var(--font-serif)", "serif"],
       },
     },
   },

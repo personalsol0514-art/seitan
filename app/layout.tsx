@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { Zen_Kaku_Gothic_New, Noto_Sans_JP } from "next/font/google";
+import {
+  Zen_Kaku_Gothic_New,
+  Noto_Sans_JP,
+  Noto_Serif_JP,
+} from "next/font/google";
 import "./globals.css";
 
 const zenKaku = Zen_Kaku_Gothic_New({
@@ -13,6 +17,13 @@ const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   variable: "--font-sans",
+  display: "swap",
+});
+
+const notoSerifJP = Noto_Serif_JP({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-serif",
   display: "swap",
 });
 
@@ -82,7 +93,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ja" className={`${zenKaku.variable} ${notoSansJP.variable}`}>
+    <html
+      lang="ja"
+      className={`${zenKaku.variable} ${notoSansJP.variable} ${notoSerifJP.variable}`}
+    >
       <body>
         <script
           type="application/ld+json"
