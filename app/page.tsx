@@ -3,7 +3,6 @@ import MobileCtaBar from "@/components/MobileCtaBar";
 import Hero from "@/components/Hero";
 import TrustBanner from "@/components/TrustBanner";
 import Pain from "@/components/Pain";
-import Causes from "@/components/Causes";
 import Compare from "@/components/Compare";
 import Symptoms from "@/components/Symptoms";
 import Therapist from "@/components/Therapist";
@@ -23,7 +22,6 @@ export default function Home() {
         <Hero />
         <TrustBanner />
         <Pain />
-        <Causes />
         <Compare />
         <Symptoms />
         <Therapist />
