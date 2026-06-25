@@ -12,8 +12,8 @@ const CIRCLES = [
 export default function TrustBanner() {
   return (
     <section className="relative z-20 bg-cream">
-      <div className="mx-auto max-w-[1120px] px-5 pb-12 md:pb-16">
-        <div className="-mt-14 flex flex-wrap items-start justify-center gap-x-4 gap-y-6 sm:gap-x-6 md:-mt-24">
+      <div className="mx-auto max-w-[1120px] px-5 py-12 md:py-16">
+        <div className="flex flex-wrap items-start justify-center gap-x-4 gap-y-6 sm:gap-x-6">
           {CIRCLES.map((c) => (
             <div
               key={c.main}
