@@ -19,12 +19,12 @@ body {
   object-position: var(--hero-position-mobile);
 }
 
+.hero-slide-image-flip {
+  transform: scaleX(-1);
+}
+
 @media (min-width: 768px) {
   .hero-slide-image {
     object-position: var(--hero-position-desktop);
-  }
-
-  .hero-slide-image-flip-desktop {
-    transform: scaleX(-1);
   }
 }

@@ -9,14 +9,14 @@ const SLIDES = [
     alt: "整体 Natural の施術風景",
     desktopPos: "50% 22%",
     mobilePos: "36% 22%",
-    flipDesktop: false,
+    flip: false,
   },
   {
     src: "/images/therapist.jpg",
     alt: "院長による姿勢チェック",
     desktopPos: "50% 28%",
     mobilePos: "24% 28%",
-    flipDesktop: true,
+    flip: true,
   },
 ];
 
@@ -55,7 +55,7 @@ export default function Hero() {
                 priority={index === 0}
                 sizes="100vw"
                 className={`hero-slide-image object-cover ${
-                  slide.flipDesktop ? "hero-slide-image-flip-desktop" : ""
+                  slide.flip ? "hero-slide-image-flip" : ""
                 }`}
                 style={
                   {
