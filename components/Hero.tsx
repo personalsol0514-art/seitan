@@ -3,8 +3,6 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-const BOOKING = "https://bookom.jp";
-
 const SLIDES = [
   { src: "/images/hero.jpg", alt: "整体 Natural の施術風景", pos: "50% 22%" },
   { src: "/images/therapist.jpg", alt: "院長による姿勢チェック", pos: "50% 28%" },
@@ -96,28 +94,13 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* CTA row */}
-        <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-3">
-          <div className="flex flex-col">
-            <a
-              href="tel:07022825501"
-              className="inline-flex items-center justify-center gap-2 bg-white text-green font-black text-lg px-6 py-3.5 rounded-md hover:bg-cream transition-colors"
-            >
-              📞 070-2282-5501
-            </a>
-            <span className="mt-1 text-center text-[11px] text-white/85">
-              受付 9:00〜20:00
-            </span>
-          </div>
-          <a
-            href={BOOKING}
-            target="_blank"
-            rel="noopener"
-            className="inline-flex items-center justify-center bg-orange hover:bg-orangeDark text-white font-bold text-base px-7 py-4 rounded-md transition-colors"
-          >
-            初回1,100円で予約する →
-          </a>
-        </div>
+        <a
+          href="#pain"
+          className="mt-10 inline-flex w-fit flex-col gap-1 text-xs font-bold tracking-[0.24em] text-white/85 transition-colors hover:text-white"
+        >
+          <span>SCROLL</span>
+          <span className="h-8 w-px bg-white/70" aria-hidden />
+        </a>
       </div>
     </section>
   );
