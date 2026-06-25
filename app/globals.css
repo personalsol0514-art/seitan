@@ -14,3 +14,17 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+
+.hero-slide-image {
+  object-position: var(--hero-position-mobile);
+}
+
+@media (min-width: 768px) {
+  .hero-slide-image {
+    object-position: var(--hero-position-desktop);
+  }
+
+  .hero-slide-image-flip-desktop {
+    transform: scaleX(-1);
+  }
+}

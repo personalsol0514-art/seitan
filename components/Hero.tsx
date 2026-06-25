@@ -4,8 +4,20 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const SLIDES = [
-  { src: "/images/hero.jpg", alt: "整体 Natural の施術風景", pos: "50% 22%" },
-  { src: "/images/therapist.jpg", alt: "院長による姿勢チェック", pos: "50% 28%" },
+  {
+    src: "/images/hero.jpg",
+    alt: "整体 Natural の施術風景",
+    desktopPos: "50% 22%",
+    mobilePos: "36% 22%",
+    flipDesktop: false,
+  },
+  {
+    src: "/images/therapist.jpg",
+    alt: "院長による姿勢チェック",
+    desktopPos: "50% 28%",
+    mobilePos: "24% 28%",
+    flipDesktop: true,
+  },
 ];
 
 const CHIPS = [
@@ -42,8 +54,15 @@ export default function Hero() {
                 fill
                 priority={index === 0}
                 sizes="100vw"
-                className="object-cover"
-                style={{ objectPosition: slide.pos }}
+                className={`hero-slide-image object-cover ${
+                  slide.flipDesktop ? "hero-slide-image-flip-desktop" : ""
+                }`}
+                style={
+                  {
+                    "--hero-position-desktop": slide.desktopPos,
+                    "--hero-position-mobile": slide.mobilePos,
+                  } as React.CSSProperties
+                }
               />
             </div>
           ))}
