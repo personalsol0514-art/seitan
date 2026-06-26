@@ -40,7 +40,7 @@ export default function Improvement() {
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-orange">
               BONE MEMBRANE CARE
             </p>
-            <h2 className="mt-5 font-serif text-[30px] font-semibold leading-[1.65] tracking-[0.06em] text-greenHeader sm:text-4xl md:text-[42px]">
+            <h2 className="mt-5 font-serif text-[28px] font-semibold leading-[1.7] tracking-[0.08em] text-greenHeader sm:text-3xl md:text-4xl">
               そのお悩み、
               <br />
               整体Naturalで
@@ -86,9 +86,9 @@ export default function Improvement() {
                   {point.number}
                   <span className="h-px w-6 bg-orange/60" aria-hidden />
                 </span>
-                <h3 className="relative z-10 mt-2 text-[22px] font-black leading-snug tracking-[0.04em] text-greenHeader md:text-[26px]">
+                <h3 className="relative z-10 mt-2 font-serif text-[23px] font-semibold leading-snug tracking-[0.08em] text-greenHeader md:text-[27px]">
                   {point.titlePrefix}
-                  <span className="text-[26px] text-green md:text-[32px]">
+                  <span className="text-[26px] font-semibold text-green md:text-[31px]">
                     {point.highlight}
                   </span>
                   {point.titleSuffix}
