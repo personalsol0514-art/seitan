@@ -1,7 +1,4 @@
-"use client";
-
 import Image from "next/image";
-import { useState } from "react";
 import CtaRow from "./CtaRow";
 
 const STAFFS = [
@@ -52,16 +49,10 @@ const STAFFS = [
 ];
 
 export default function Therapist() {
-  const [active, setActive] = useState(0);
-
-  const move = (direction: -1 | 1) => {
-    setActive((current) => (current + direction + STAFFS.length) % STAFFS.length);
-  };
-
   return (
     <section id="therapist" className="overflow-hidden bg-[#f6f1e8] py-16 md:py-24">
-      <div className="mx-auto max-w-[1120px] px-5">
-        <div className="mx-auto max-w-3xl text-center">
+      <div className="mx-auto max-w-[1120px]">
+        <div className="px-5 text-center">
           <p className="text-xs font-bold uppercase tracking-[0.24em] text-orange">
             PROFILE
           </p>
@@ -75,113 +66,85 @@ export default function Therapist() {
         </div>
 
         <div className="mt-12">
-          <div className="overflow-hidden">
-            <div
-              className="flex transition-transform duration-500 ease-out"
-              style={{ transform: `translateX(-${active * 100}%)` }}
-            >
-              {STAFFS.map((staff) => (
-                <article key={staff.name} className="w-full shrink-0">
-                  <div className="grid items-stretch bg-[#fffdf8] shadow-[0_18px_45px_rgba(34,48,40,0.10)] lg:grid-cols-[0.9fr_1.1fr]">
-                    <figure className="relative min-h-[280px] overflow-hidden lg:min-h-[590px]">
-                      <Image
-                        src={staff.image}
-                        alt={`${staff.name}の紹介写真`}
-                        fill
-                        sizes="(max-width: 1023px) 100vw, 500px"
-                        className="object-cover"
-                        style={{ objectPosition: staff.imagePosition }}
-                      />
-                    </figure>
+          <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-5 [scrollbar-width:none] md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-5 md:pb-0 [&::-webkit-scrollbar]:hidden">
+            {STAFFS.map((staff, index) => (
+              <article
+                key={staff.name}
+                className="flex h-[70vh] min-h-[600px] w-[84vw] max-w-[350px] shrink-0 snap-center flex-col overflow-hidden bg-[#fffdf8] shadow-[0_16px_36px_rgba(34,48,40,0.10)] md:h-auto md:min-h-0 md:w-auto md:max-w-none"
+              >
+                <figure className="relative h-[34%] min-h-[190px] overflow-hidden md:aspect-[4/3] md:h-auto md:min-h-0">
+                  <Image
+                    src={staff.image}
+                    alt={`${staff.name}の紹介写真`}
+                    fill
+                    sizes="(max-width: 767px) 84vw, 520px"
+                    className="object-cover"
+                    style={{ objectPosition: staff.imagePosition }}
+                  />
+                </figure>
 
-                    <div className="relative px-5 py-8 sm:px-8 md:px-10 lg:px-12 lg:py-12">
-                      <div className="flex flex-col gap-4 border-b border-green/15 pb-6 sm:flex-row sm:items-end sm:justify-between">
-                        <div>
-                          <p className="text-xs font-bold tracking-[0.18em] text-orange">
-                            STAFF {String(STAFFS.indexOf(staff) + 1).padStart(2, "0")}
-                          </p>
-                          <h3 className="mt-3 font-serif text-3xl font-semibold tracking-[0.12em] text-greenHeader md:text-[38px]">
-                            {staff.name}
-                          </h3>
-                        </div>
-                        <p className="text-sm font-bold tracking-[0.08em] text-sub">
-                          {staff.role}
-                        </p>
-                      </div>
-
-                      <p className="mt-7 font-serif text-2xl font-semibold leading-[1.65] tracking-[0.08em] text-greenHeader md:text-[32px]">
-                        {staff.copy}
+                <div className="flex min-h-0 flex-1 flex-col px-5 py-5 md:px-8 md:py-8">
+                  <div className="border-b border-green/15 pb-4 md:flex md:items-end md:justify-between md:gap-4 md:pb-6">
+                    <div>
+                      <p className="text-xs font-bold tracking-[0.18em] text-orange">
+                        STAFF {String(index + 1).padStart(2, "0")}
                       </p>
-                      <p className="mt-5 text-sm font-medium leading-8 text-sub md:text-base md:leading-9">
-                        {staff.lead}
-                      </p>
-
-                      <div className="mt-8 grid gap-0 border-y border-green/15">
-                        {staff.points.map((point, index) => (
-                          <div
-                            key={point.title}
-                            className="grid gap-4 border-green/15 py-5 sm:grid-cols-[64px_1fr] sm:gap-5 [&:not(:last-child)]:border-b"
-                          >
-                            <span className="font-serif text-2xl font-semibold text-[#b59a5a]">
-                              {String(index + 1).padStart(2, "0")}
-                            </span>
-                            <div>
-                              <h4 className="font-serif text-xl font-semibold tracking-[0.06em] text-greenHeader">
-                                {point.title}
-                              </h4>
-                              <p className="mt-2 text-sm font-medium leading-7 text-sub">
-                                {point.desc}
-                              </p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
+                      <h3 className="mt-2 font-serif text-[28px] font-semibold tracking-[0.12em] text-greenHeader md:text-[34px]">
+                        {staff.name}
+                      </h3>
                     </div>
+                    <p className="mt-2 text-xs font-bold leading-5 tracking-[0.08em] text-sub md:mt-0 md:text-sm">
+                      {staff.role}
+                    </p>
                   </div>
-                </article>
-              ))}
-            </div>
+
+                  <p className="mt-4 font-serif text-xl font-semibold leading-[1.55] tracking-[0.08em] text-greenHeader md:mt-6 md:text-[28px] md:leading-[1.65]">
+                    {staff.copy}
+                  </p>
+                  <p className="mt-3 text-xs font-medium leading-6 text-sub md:mt-4 md:text-sm md:leading-8">
+                    {staff.lead}
+                  </p>
+
+                  <div className="mt-4 min-h-0 flex-1 border-y border-green/15 md:mt-7">
+                    {staff.points.map((point, pointIndex) => (
+                      <div
+                        key={point.title}
+                        className="grid grid-cols-[42px_1fr] gap-3 border-green/15 py-3 md:grid-cols-[58px_1fr] md:gap-5 md:py-5 [&:not(:last-child)]:border-b"
+                      >
+                        <span className="font-serif text-xl font-semibold text-[#b59a5a] md:text-2xl">
+                          {String(pointIndex + 1).padStart(2, "0")}
+                        </span>
+                        <div>
+                          <h4 className="font-serif text-base font-semibold tracking-[0.06em] text-greenHeader md:text-xl">
+                            {point.title}
+                          </h4>
+                          <p className="mt-1 hidden text-sm font-medium leading-7 text-sub md:block">
+                            {point.desc}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
 
-          <div className="mt-6 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-            <div className="flex items-center justify-center gap-3 md:justify-start">
-              <button
-                type="button"
-                onClick={() => move(-1)}
-                className="flex h-12 w-12 items-center justify-center border border-green/20 bg-[#fffdf8] text-xl font-bold text-greenHeader transition-colors hover:bg-greenHeader hover:text-white"
-                aria-label="前のスタッフを見る"
-              >
-                ←
-              </button>
-              <button
-                type="button"
-                onClick={() => move(1)}
-                className="flex h-12 w-12 items-center justify-center border border-green/20 bg-[#fffdf8] text-xl font-bold text-greenHeader transition-colors hover:bg-greenHeader hover:text-white"
-                aria-label="次のスタッフを見る"
-              >
-                →
-              </button>
-            </div>
-
-            <div className="flex items-center justify-center gap-3">
+          <div className="mt-2 flex flex-col items-center md:hidden">
+            <div className="flex gap-2" aria-hidden>
               {STAFFS.map((staff, index) => (
-                <button
+                <span
                   key={staff.name}
-                  type="button"
-                  onClick={() => setActive(index)}
-                  className={`h-px transition-all ${
-                    active === index ? "w-12 bg-greenHeader" : "w-6 bg-green/25"
-                  }`}
-                  aria-label={`${staff.name}を見る`}
+                  className={`h-px ${index === 0 ? "w-8 bg-green" : "w-4 bg-green/30"}`}
                 />
               ))}
-              <span className="ml-1 text-xs font-bold tracking-[0.18em] text-sub">
-                {String(active + 1).padStart(2, "0")} / {String(STAFFS.length).padStart(2, "0")}
-              </span>
             </div>
+            <p className="mt-3 text-[11px] tracking-[0.14em] text-sub">
+              横にスワイプして確認
+            </p>
           </div>
 
-          <div className="relative mt-8 bg-greenHeader px-5 py-7 text-center text-white shadow-[0_14px_28px_rgba(7,63,42,0.18)] md:px-8 md:py-8">
+          <div className="relative mx-5 mt-8 bg-greenHeader px-5 py-7 text-center text-white shadow-[0_14px_28px_rgba(7,63,42,0.18)] md:px-8 md:py-8">
             <span className="absolute -top-4 left-1/2 h-8 w-px bg-[#b59a5a]" aria-hidden />
             <p className="font-serif text-xl font-semibold leading-[1.8] tracking-[0.08em] md:text-2xl">
               「どこに行っても良くならない」という方こそ、
@@ -191,7 +154,9 @@ export default function Therapist() {
           </div>
         </div>
 
-        <CtaRow bookLabel="初回1,100円で相談する" />
+        <div className="px-5">
+          <CtaRow bookLabel="初回1,100円で相談する" />
+        </div>
       </div>
     </section>
   );
