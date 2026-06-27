@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SectionHeading from "./SectionHeading";
 import CtaRow from "./CtaRow";
 
@@ -19,7 +20,7 @@ export default function Price() {
       <div className="mx-auto max-w-[1080px] px-5">
         <SectionHeading kicker="PRICE" title="料金" />
 
-        <div className="mx-auto mt-14 max-w-[720px]">
+        <div className="mx-auto mt-14 max-w-[860px]">
           {/* 初回限定カード */}
           <div className="relative rounded-[20px] bg-white p-[2px] shadow-[0_20px_50px_rgba(18,61,39,0.12)]">
             {/* オレンジの枠線グラデーション */}
@@ -31,11 +32,20 @@ export default function Price() {
               }}
             />
 
-            <div className="relative rounded-[18px] bg-white">
-              {/* 初回限定バッジ */}
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+            <div className="relative grid grid-cols-1 overflow-hidden rounded-[18px] bg-white md:grid-cols-[44%_1fr]">
+              {/* 写真 */}
+              <div className="relative aspect-[4/3] w-full md:aspect-auto md:min-h-full">
+                <Image
+                  src="/images/price-treatment.jpg"
+                  alt="整体 Natural の施術"
+                  fill
+                  sizes="(max-width: 767px) 100vw, 380px"
+                  className="object-cover"
+                  style={{ objectPosition: "50% 50%" }}
+                />
+                {/* 初回限定バッジ */}
                 <span
-                  className="inline-flex items-center gap-1.5 rounded-full px-5 py-2 font-head text-sm font-black tracking-[0.08em] text-white shadow-[0_8px_18px_rgba(236,115,36,0.35)]"
+                  className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full px-4 py-2 font-head text-sm font-black tracking-[0.08em] text-white shadow-[0_8px_18px_rgba(214,98,26,0.4)]"
                   style={{
                     background:
                       "linear-gradient(135deg, #f4923f 0%, #ec7324 55%, #d4621a 100%)",
@@ -45,36 +55,33 @@ export default function Price() {
                 </span>
               </div>
 
-              <div className="px-6 pb-9 pt-12 text-center md:px-12 md:pb-11 md:pt-14">
-                {/* 価格 */}
-                <div className="mx-auto flex max-w-[440px] flex-col items-center rounded-2xl bg-[#fff7ef] px-5 py-7 md:py-8">
-                  <div className="flex items-center gap-2.5">
-                    <span className="rounded bg-orange px-2.5 py-1 text-[11px] font-bold tracking-[0.04em] text-white md:text-xs">
-                      5,500円 OFF
-                    </span>
-                    <span className="text-base text-sub line-through md:text-lg">
-                      通常 ¥6,600
-                    </span>
-                  </div>
-
-                  <div className="mt-3 flex items-end justify-center text-orange">
-                    <span className="pb-2.5 font-head text-2xl font-black md:text-3xl">
-                      ¥
-                    </span>
-                    <span className="font-head text-[64px] font-black leading-[0.9] tracking-tight md:text-[88px]">
-                      1,100
-                    </span>
-                    <span className="pb-3 pl-1 font-head text-lg font-black md:text-xl">
-                      税込
-                    </span>
-                  </div>
-                  <p className="mt-1.5 text-xs font-bold tracking-[0.06em] text-greenHeader/70">
-                    初回のみの特別価格です
-                  </p>
+              {/* 価格・内容 */}
+              <div className="px-6 py-8 md:px-9 md:py-9">
+                <div className="flex items-center gap-2.5">
+                  <span className="rounded bg-orange px-2.5 py-1 text-[11px] font-bold tracking-[0.04em] text-white md:text-xs">
+                    5,500円 OFF
+                  </span>
+                  <span className="text-sm text-sub line-through md:text-base">
+                    通常 ¥6,600
+                  </span>
                 </div>
 
-                {/* 含まれる内容 */}
-                <ul className="mx-auto mt-8 grid max-w-[520px] grid-cols-1 gap-x-7 gap-y-3.5 text-left sm:grid-cols-2">
+                <div className="mt-3 flex items-baseline text-orange">
+                  <span className="font-head text-3xl font-black md:text-4xl">¥</span>
+                  <span className="font-head text-[68px] font-black leading-none tracking-tight md:text-[80px]">
+                    1,100
+                  </span>
+                  <span className="ml-1.5 font-head text-base font-bold text-orange/90 md:text-lg">
+                    税込
+                  </span>
+                </div>
+                <p className="mt-2 text-xs font-bold tracking-[0.06em] text-greenHeader/70">
+                  初回のみの特別価格です
+                </p>
+
+                <div className="mt-6 h-px w-full bg-greenHeader/12" />
+
+                <ul className="mt-6 grid grid-cols-1 gap-y-3 text-left">
                   {INCLUDED.map((item) => (
                     <li
                       key={item}
@@ -122,7 +129,7 @@ export default function Price() {
           </div>
 
           <p className="mt-5 text-center text-sm text-sub">
-            現金・各種クレジットカード・QR決済対応
+            各種クレジットカード・QR決済対応（キャッシュレス決済）
           </p>
         </div>
 

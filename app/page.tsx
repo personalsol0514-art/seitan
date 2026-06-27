@@ -10,7 +10,6 @@ import Therapist from "@/components/Therapist";
 import Flow from "@/components/Flow";
 import Voice from "@/components/Voice";
 import Price from "@/components/Price";
-import Faq from "@/components/Faq";
 import Access from "@/components/Access";
 import Cta from "@/components/Cta";
 import Footer from "@/components/Footer";
@@ -30,7 +29,6 @@ export default function Home() {
         <Flow />
         <Voice />
         <Price />
-        <Faq />
         <Access />
         <Cta />
       </main>
