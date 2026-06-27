@@ -69,6 +69,14 @@ const jsonLd = {
     streetAddress: "本町通2丁目3 鳥居ビル1F",
     addressCountry: "JP",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 34.9596633,
+    longitude: 137.1637781,
+  },
+  sameAs: [
+    "https://www.google.com/maps/place/%E6%95%B4%E4%BD%93Natural+%E5%B2%A1%E5%B4%8E%E5%BA%97/data=!4m2!3m1!1s0x0:0xbced8bbc6b27f86c",
+  ],
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
