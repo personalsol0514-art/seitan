@@ -28,7 +28,7 @@ const notoSerifJP = Noto_Serif_JP({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://seitan.pages.dev"),
+  metadataBase: new URL("https://seitai-natural.jp"),
   title: "整体Natural | 岡崎市の整体院 腰痛・肩こり・姿勢改善",
   description:
     "岡崎市・東岡崎駅から徒歩15分の整体院「整体Natural」。腰痛・肩こり・姿勢改善に対応。初回60分1,100円。完全予約制・個室対応。根本から整える独自の整体をご体験ください。",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ja_JP",
-    url: "https://seitan.pages.dev",
+    url: "https://seitai-natural.jp",
     title: "整体Natural | 岡崎市の整体院 腰痛・肩こり・姿勢改善",
     description:
       "岡崎市・東岡崎駅から徒歩15分の整体院「整体Natural」。腰痛・肩こり・姿勢改善に対応。初回60分1,100円。完全予約制・個室対応。根本から整える独自の整体をご体験ください。",
@@ -59,8 +59,8 @@ const jsonLd = {
   name: "整体Natural",
   telephone: "+81-70-2282-5501",
   priceRange: "¥1,100〜",
-  url: "https://seitan.pages.dev",
-  image: "https://seitan.pages.dev/images/hero.jpg",
+  url: "https://seitai-natural.jp",
+  image: "https://seitai-natural.jp/images/hero.jpg",
   address: {
     "@type": "PostalAddress",
     postalCode: "444-0051",
