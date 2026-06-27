@@ -77,14 +77,15 @@ export default function Hero() {
         />
 
         <div className="relative z-10 mx-auto flex min-h-[calc(82svh-68px)] max-w-6xl flex-col justify-center px-5 pb-16 pt-12 md:min-h-[calc(84svh-68px)] md:px-6">
-          <p className="font-serif text-xs font-medium tracking-[0.12em] text-white md:text-sm">
-            岡崎市・東岡崎｜完全予約制
-          </p>
-
-          <h1 className="mt-5 max-w-3xl font-serif text-[34px] font-semibold leading-[1.42] tracking-[0.04em] text-white [text-shadow:0_2px_10px_rgba(0,0,0,0.22)] sm:text-[40px] md:text-[48px] lg:text-[56px]">
-            その痛み、
-            <br />
-            あきらめる前に。
+          <h1 className="max-w-3xl text-white">
+            <span className="block font-serif text-xs font-medium tracking-[0.12em] md:text-sm">
+              岡崎市・東岡崎の整体院｜完全予約制
+            </span>
+            <span className="mt-5 block font-serif text-[34px] font-semibold leading-[1.42] tracking-[0.04em] [text-shadow:0_2px_10px_rgba(0,0,0,0.22)] sm:text-[40px] md:text-[48px] lg:text-[56px]">
+              その痛み、
+              <br />
+              あきらめる前に。
+            </span>
           </h1>
 
           <p className="mt-5 max-w-xl font-serif text-sm font-medium leading-7 tracking-[0.04em] text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.2)] md:text-base md:leading-8">
