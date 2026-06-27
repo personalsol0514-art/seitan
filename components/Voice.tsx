@@ -71,7 +71,7 @@ export default function Voice() {
                 </div>
               </div>
               <div className="mt-3 tracking-tight text-star">★★★★★</div>
-              <p className="mt-2 font-head text-base font-bold leading-snug text-greenHeader">
+              <p className="mt-2 font-serif text-base font-semibold leading-snug tracking-[0.04em] text-greenHeader">
                 「{r.head}」
               </p>
               <p className="mt-2 flex-1 text-sm leading-relaxed text-sub">

@@ -53,7 +53,7 @@ export default function Flow() {
                 </span>
               </div>
               <div className="px-4 py-4">
-                <p className="font-head text-base font-bold leading-snug text-greenHeader">
+                <p className="font-serif text-base font-semibold leading-snug tracking-[0.04em] text-greenHeader">
                   {step.title}
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-sub">{step.sub}</p>
