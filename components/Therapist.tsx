@@ -5,46 +5,18 @@ const STAFFS = [
   {
     name: "片桐 滉晴",
     role: "整体 Natural 院長 / 整体師",
-    image: "/images/therapist.jpg",
-    imagePosition: "18% 52%",
+    image: "/images/katagiri.jpg",
+    imagePosition: "50% 22%",
     copy: "整体Natural岡崎院、骨膜整体師の片桐滉晴です！",
     lead: "皆様の理想の姿に向けて根本的な改善を目標に施術していきます！よろしくお願いいたします！",
-    points: [
-      {
-        title: "整体師歴10年",
-        desc: "肩こり・腰痛・姿勢の不調など、慢性的なお悩みに向き合ってきました。",
-      },
-      {
-        title: "検査と説明を重視",
-        desc: "今の身体の状態を確認し、原因の見立てを共有してから施術します。",
-      },
-      {
-        title: "戻りにくい身体へ",
-        desc: "その場の軽さだけでなく、日常で戻りにくいケアまで提案します。",
-      },
-    ],
   },
   {
     name: "谷山 誠",
     role: "整体 Natural スタッフ",
     image: "/images/taniyama.jpg",
-    imagePosition: "50% 22%",
+    imagePosition: "50% 18%",
     copy: "初めての方にも、安心できる時間を。",
     lead: "お悩みを丁寧に伺い、緊張せずに相談できる雰囲気づくりを大切にしています。",
-    points: [
-      {
-        title: "丁寧なカウンセリング",
-        desc: "小さな違和感や不安も話しやすいよう、最初の会話を大切にします。",
-      },
-      {
-        title: "状態に合わせた対応",
-        desc: "その日の身体の状態を確認し、無理のない施術を心がけます。",
-      },
-      {
-        title: "セルフケアまで提案",
-        desc: "施術後もラクな状態が続くよう、日常でできるケアをお伝えします。",
-      },
-    ],
   },
 ];
 
@@ -72,7 +44,7 @@ export default function Therapist() {
                 key={staff.name}
                 className="flex w-[84vw] max-w-[350px] shrink-0 snap-center flex-col bg-[#fffdf8] shadow-[0_16px_36px_rgba(34,48,40,0.10)] md:w-auto md:max-w-none"
               >
-                <figure className="relative aspect-[4/3] overflow-hidden">
+                <figure className="relative aspect-[4/5] overflow-hidden">
                   <Image
                     src={staff.image}
                     alt={`${staff.name}の紹介写真`}
@@ -104,27 +76,6 @@ export default function Therapist() {
                   <p className="mt-3 text-xs font-medium leading-6 text-sub md:mt-4 md:text-sm md:leading-8">
                     {staff.lead}
                   </p>
-
-                  <div className="mt-4 min-h-0 flex-1 border-y border-green/15 md:mt-7">
-                    {staff.points.map((point, pointIndex) => (
-                      <div
-                        key={point.title}
-                        className="grid grid-cols-[42px_1fr] gap-3 border-green/15 py-3 md:grid-cols-[58px_1fr] md:gap-5 md:py-5 [&:not(:last-child)]:border-b"
-                      >
-                        <span className="font-serif text-xl font-semibold text-[#b59a5a] md:text-2xl">
-                          {String(pointIndex + 1).padStart(2, "0")}
-                        </span>
-                        <div>
-                          <h4 className="font-serif text-base font-semibold tracking-[0.06em] text-greenHeader md:text-xl">
-                            {point.title}
-                          </h4>
-                          <p className="mt-1 hidden text-sm font-medium leading-7 text-sub md:block">
-                            {point.desc}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               </article>
             ))}
