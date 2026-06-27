@@ -44,14 +44,8 @@ export default function Price() {
                   style={{ objectPosition: "50% 50%" }}
                 />
                 {/* 初回限定バッジ */}
-                <span
-                  className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full px-4 py-2 font-head text-sm font-black tracking-[0.08em] text-white shadow-[0_8px_18px_rgba(214,98,26,0.4)]"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, #f4923f 0%, #ec7324 55%, #d4621a 100%)",
-                  }}
-                >
-                  ★ 初回限定
+                <span className="absolute left-0 top-6 rounded-r-md bg-greenHeader/95 py-2 pl-4 pr-5 font-serif text-[13px] font-semibold tracking-[0.22em] text-white shadow-[0_6px_16px_rgba(7,40,25,0.28)] backdrop-blur-sm md:text-sm">
+                  初回限定
                 </span>
               </div>
 
