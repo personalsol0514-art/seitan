@@ -28,7 +28,7 @@ export default function Footer() {
               </a>
             </p>
             <p className="mt-2 text-sm text-white/85">
-              営業時間 9:00〜20:00（最終受付19:00）／年中無休
+              営業時間 11:00〜20:00（最終受付19:00）／年中無休
             </p>
           </div>
 

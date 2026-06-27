@@ -81,7 +81,7 @@ const jsonLd = {
         "Saturday",
         "Sunday",
       ],
-      opens: "09:00",
+      opens: "11:00",
       closes: "20:00",
     },
   ],

@@ -60,7 +60,7 @@ export default function Navigation() {
             >
               070-2282-5501
             </a>
-            <span className="text-[10px] text-sub">受付 9:00〜20:00</span>
+            <span className="text-[10px] text-sub">受付 11:00〜20:00</span>
           </div>
           <a
             href={BOOKING}

@@ -25,7 +25,7 @@ export default function Cta() {
           </a>
         </div>
 
-        <p className="mt-5 text-xs text-white/75">受付 9:00〜20:00（年中無休）</p>
+        <p className="mt-5 text-xs text-white/75">受付 11:00〜20:00（年中無休）</p>
       </div>
     </section>
   );
