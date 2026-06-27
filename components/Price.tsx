@@ -10,62 +10,74 @@ const INCLUDED = [
 ];
 
 const ROWS = [
-  { label: "2回目以降　整体 60分", price: "¥6,600(税込)" },
-  { label: "2回目以降　整体 90分", price: "¥9,900(税込)" },
+  { label: "2回目以降　骨膜整体", price: "¥8,800(税込)" },
 ];
 
 export default function Price() {
   return (
-    <section id="price" className="bg-white py-16 md:py-24">
+    <section id="price" className="bg-[#fbfaf5] py-16 md:py-24">
       <div className="mx-auto max-w-[1080px] px-5">
         <SectionHeading kicker="PRICE" title="料金" />
 
-        <div className="mx-auto mt-12 max-w-2xl">
-          {/* Featured first-visit card */}
-          <div className="rounded-lg border-2 border-orange bg-cream p-6 shadow-sm md:p-8">
-            <div className="text-center">
-              <span className="font-head text-lg font-black text-greenHeader">
+        <div className="mx-auto mt-12 max-w-[760px]">
+          <div className="overflow-hidden rounded-lg border border-greenHeader/20 bg-white shadow-[0_12px_34px_rgba(18,61,39,0.08)]">
+            <div className="flex items-center justify-between bg-greenHeader px-5 py-4 text-white md:px-8">
+              <span className="font-serif text-lg font-semibold tracking-[0.1em] md:text-xl">
                 初回限定
               </span>
-              <p className="mt-3 text-sm font-medium text-sub">
-                カウンセリング＋整体 60分
-              </p>
-              <p className="mt-2 flex items-baseline justify-center gap-2">
-                <span className="text-lg text-sub line-through">¥6,600</span>
-                <span className="font-head text-5xl font-black text-orange md:text-6xl">
-                  ¥1,100
-                </span>
-              </p>
-              <p className="mt-1 text-sm text-sub">(税込)</p>
+              <span className="text-xs font-bold tracking-[0.05em] text-[#f2d9a6] md:text-sm">
+                5,500円 OFF
+              </span>
             </div>
 
-            <ul className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
-              {INCLUDED.map((item) => (
-                <li key={item} className="flex items-center gap-2">
-                  <span className="font-bold text-orange">✓</span>
-                  <span className="text-sm text-ink">{item}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="px-5 pb-7 pt-8 text-center md:px-10 md:pb-10 md:pt-10">
+              <p className="font-serif text-base font-semibold tracking-[0.06em] text-greenHeader md:text-xl">
+                カウンセリング＋整体 60分
+              </p>
+
+              <div className="mt-5 flex items-end justify-center gap-3">
+                <span className="pb-2 text-base text-sub line-through md:text-lg">通常 ¥6,600</span>
+                <p className="flex items-end text-orange">
+                  <span className="pb-1 font-head text-2xl font-black">¥</span>
+                  <span className="font-head text-6xl font-black leading-none md:text-7xl">1,100</span>
+                </p>
+              </div>
+              <p className="mt-2 text-xs font-medium text-sub">税込・初回のみ</p>
+
+              <div className="mx-auto mt-7 h-px max-w-[560px] bg-greenHeader/15" />
+
+              <ul className="mx-auto mt-6 grid max-w-[590px] grid-cols-1 gap-x-8 gap-y-3 text-left sm:grid-cols-2">
+                {INCLUDED.map((item) => (
+                  <li key={item} className="flex items-center gap-2.5 text-sm font-medium text-ink">
+                    <span className="font-bold text-orange" aria-hidden>✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          {/* Repeat-visit table */}
-          <div className="mt-8 overflow-hidden rounded-lg border border-line">
+          <div className="mt-10">
+            <p className="mb-4 text-center font-serif text-lg font-semibold tracking-[0.08em] text-greenHeader">
+              2回目以降の料金
+            </p>
+            <div className="overflow-hidden rounded-md border border-line bg-white">
             {ROWS.map((row, i) => (
               <div
                 key={row.label}
-                className={`flex items-center justify-between px-5 py-4 ${
+                className={`flex items-center justify-between gap-4 px-5 py-4 md:px-7 ${
                   i !== 0 ? "border-t border-line" : ""
                 }`}
               >
-                <span className="text-sm font-medium text-ink md:text-base">
+                <span className="text-sm font-medium text-ink">
                   {row.label}
                 </span>
-                <span className="font-head text-lg font-black text-greenHeader md:text-xl">
+                <span className="whitespace-nowrap font-head text-base font-black text-greenHeader md:text-lg">
                   {row.price}
                 </span>
               </div>
             ))}
+            </div>
           </div>
 
           <p className="mt-5 text-center text-sm text-sub">

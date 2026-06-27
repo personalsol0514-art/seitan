@@ -3,52 +3,41 @@ const BOOKING = "https://bookom.jp";
 export default function MobileCtaBar() {
   return (
     <>
-      <div className="fixed bottom-0 left-0 right-0 z-50 grid grid-cols-2 shadow-[0_-4px_12px_rgba(0,0,0,0.12)] lg:hidden">
-        <a
-          href="tel:07022825501"
-          className="flex items-center justify-center gap-1.5 bg-green text-white font-bold py-4 text-sm"
-        >
-          📞 電話する
-        </a>
+      <div className="fixed inset-x-0 bottom-0 z-50 bg-white px-3 pb-[max(env(safe-area-inset-bottom),12px)] pt-2 shadow-[0_-6px_24px_rgba(8,35,22,0.16)] lg:hidden">
+        <p className="mb-1.5 text-center text-[10px] font-bold tracking-[0.04em] text-greenHeader">
+          空き状況は30秒で確認できます
+        </p>
         <a
           href={BOOKING}
           target="_blank"
           rel="noopener"
-          className="flex items-center justify-center gap-1.5 bg-orange text-white font-bold py-4 text-sm"
+          className="flex min-h-[56px] w-full items-center justify-center gap-5 rounded-md bg-orange px-5 text-white shadow-[0_5px_14px_rgba(236,115,36,0.25)] transition-colors active:bg-orangeDark"
+          aria-label="初回1,100円でWEB予約する"
         >
-          予約する →
+          <span className="flex flex-col items-center leading-none">
+            <span className="text-base font-bold">初回1,100円で予約</span>
+            <span className="mt-1.5 text-[10px] font-medium text-white/85">24時間WEB受付</span>
+          </span>
+          <span className="text-xl" aria-hidden>→</span>
         </a>
       </div>
 
-      <div className="fixed right-0 top-1/2 z-50 hidden w-[112px] -translate-y-1/2 overflow-hidden rounded-l-[22px] shadow-[0_12px_38px_rgba(8,35,22,0.3)] lg:block">
-        <a
-          href="tel:07022825501"
-          className="flex h-[190px] flex-col items-center justify-center gap-4 bg-greenHeader text-white transition-colors hover:bg-greenDark"
-          aria-label="電話で問い合わせる"
-        >
-          <span className="text-3xl leading-none" aria-hidden>☎</span>
-          <span
-            className="font-head text-xl font-bold tracking-[0.28em]"
-            style={{ writingMode: "vertical-rl" }}
-          >
-            電話
-          </span>
-          <span className="h-12 w-px bg-white/75" aria-hidden />
-        </a>
+      <div className="fixed right-0 top-1/2 z-50 hidden w-[112px] -translate-y-1/2 overflow-hidden rounded-l-[18px] shadow-[0_12px_38px_rgba(8,35,22,0.24)] lg:block">
         <a
           href={BOOKING}
           target="_blank"
           rel="noopener"
-          className="flex h-[190px] flex-col items-center justify-center gap-4 border-l border-greenHeader/20 bg-[#fbfaf5] text-greenHeader transition-colors hover:bg-cream"
+          className="flex h-[270px] flex-col items-center justify-center gap-5 bg-orange text-white transition-colors hover:bg-orangeDark"
           aria-label="WEB予約を開く"
         >
-          <span className="text-3xl leading-none" aria-hidden>▣</span>
+          <span className="text-xs font-bold tracking-[0.08em]">初回 1,100円</span>
           <span
-            className="font-head text-lg font-bold tracking-[0.18em]"
+            className="font-head text-lg font-bold tracking-[0.2em]"
             style={{ writingMode: "vertical-rl" }}
           >
             WEB予約
           </span>
+          <span className="text-xl" aria-hidden>→</span>
         </a>
       </div>
     </>

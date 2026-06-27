@@ -13,20 +13,14 @@ export default function Cta() {
           完全予約制・駐車場あり・土日祝も受付。お気軽にご相談ください。
         </p>
 
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <div className="mt-8 hidden items-center justify-center lg:flex">
           <a
             href={BOOKING}
             target="_blank"
             rel="noopener"
-            className="inline-flex w-full max-w-xs items-center justify-center rounded-md bg-orange px-9 py-4 text-lg font-bold text-white transition-colors hover:bg-orangeDark sm:w-auto"
+            className="inline-flex min-w-[300px] items-center justify-center gap-4 rounded-md bg-orange px-9 py-4 text-lg font-bold text-white shadow-[0_7px_20px_rgba(0,0,0,0.16)] transition-colors hover:bg-orangeDark"
           >
             今すぐ予約する →
-          </a>
-          <a
-            href="tel:07022825501"
-            className="inline-flex w-full max-w-xs items-center justify-center gap-2 rounded-md border-2 border-white bg-transparent px-8 py-4 text-lg font-bold text-white transition-colors hover:bg-white/10 sm:w-auto"
-          >
-            📞 070-2282-5501
           </a>
         </div>
 

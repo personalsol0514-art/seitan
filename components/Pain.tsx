@@ -43,8 +43,6 @@ const WORRY_GROUPS = [
   },
 ];
 
-const ALL_WORRIES = WORRY_GROUPS.flatMap((group) => group.items);
-
 export default function Pain() {
   return (
     <section id="pain" className="overflow-hidden bg-[#f6f1e8] py-16 md:py-24">
@@ -118,25 +116,7 @@ export default function Pain() {
           </div>
         </div>
 
-        <div className="mx-auto mt-14 max-w-[900px] px-5">
-          <div className="grid grid-cols-1 border-y border-green/15 sm:grid-cols-2">
-            {ALL_WORRIES.map((worry, index) => (
-              <p
-                key={worry}
-                className={`flex items-start gap-3 px-3 py-4 text-sm leading-6 text-ink ${
-                  index > 0 ? "border-t border-green/15 sm:border-t-0" : ""
-                } ${index >= 2 ? "sm:border-t sm:border-green/15" : ""} ${
-                  index % 2 === 1 ? "sm:border-l sm:border-green/15" : ""
-                }`}
-              >
-                <span className="font-bold text-green" aria-hidden>✓</span>
-                {worry}
-              </p>
-            ))}
-          </div>
-        </div>
-
-        <div className="relative mt-16 overflow-hidden bg-greenHeader px-6 py-12 text-center text-white md:mx-5 md:rounded-md md:px-12">
+        <div className="relative mt-12 overflow-hidden bg-greenHeader px-6 py-12 text-center text-white md:mx-5 md:mt-16 md:rounded-md md:px-12">
           <div
             className="pointer-events-none absolute -right-14 -top-14 h-48 w-48 rounded-full border border-white/10"
             aria-hidden
