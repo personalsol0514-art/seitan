@@ -27,8 +27,8 @@ const STAFFS = [
   {
     name: "谷山 誠",
     role: "整体 Natural スタッフ",
-    image: "/images/feature-01.jpg",
-    imagePosition: "58% 48%",
+    image: "/images/taniyama.jpg",
+    imagePosition: "50% 22%",
     copy: "初めての方にも、安心できる時間を。",
     lead: "お悩みを丁寧に伺い、緊張せずに相談できる雰囲気づくりを大切にしています。",
     points: [
