@@ -1,4 +1,5 @@
-const BOOKING = "https://bookom.jp";
+const BOOKING =
+  "https://bookom.jp/reservation?company=84&shop=263&course=1740&lang=ja";
 
 const NAV_LINKS = [
   { label: "お悩み", href: "#pain" },
