@@ -1,6 +1,8 @@
 import Image from "next/image";
 import SectionHeading from "./SectionHeading";
-import CtaRow from "./CtaRow";
+
+const BOOKING =
+  "https://bookom.jp/reservation?company=84&shop=263&course=1740&lang=ja";
 
 const INCLUDED = [
   "カウンセリング込み",
@@ -91,6 +93,15 @@ export default function Price() {
                     </li>
                   ))}
                 </ul>
+
+                <a
+                  href={BOOKING}
+                  target="_blank"
+                  rel="noopener"
+                  className="mt-7 flex w-full items-center justify-center gap-3 rounded-md bg-orange px-6 py-4 text-base font-bold text-white shadow-[0_6px_18px_rgba(236,115,36,0.25)] transition-colors hover:bg-orangeDark"
+                >
+                  初回1,100円で予約する →
+                </a>
               </div>
             </div>
           </div>
@@ -126,8 +137,6 @@ export default function Price() {
             各種クレジットカード・QR決済対応（キャッシュレス決済）
           </p>
         </div>
-
-        <CtaRow bookLabel="初回1,100円で予約する" />
       </div>
     </section>
   );
